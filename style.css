@@ -1,0 +1,15 @@
+.scrollbar-hide::-webkit-scrollbar 
+{
+display: none;
+}
+.scrollbar-hide 
+{
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+body 
+{
+background-color: #fdbf67;
+background-image: radial-gradient(#ffe1a1 1px, transparent 1px);
+background-size: 20px 20px;
+}
