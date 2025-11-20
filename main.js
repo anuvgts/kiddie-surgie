@@ -22,7 +22,6 @@ Promise.all([
   // Close mobile menu
   closeBtn.addEventListener("click", () => toggleMenu(false));
 
-  // Auto-close when menu link is clicked (using event delegation)
   mobileMenu.addEventListener("click", (e) => {
     if (e.target.closest("a")) toggleMenu(false);
   });
