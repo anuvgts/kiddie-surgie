@@ -26,3 +26,4 @@ Promise.all([
     if (e.target.closest("a")) toggleMenu(false);
   });
 });
+
