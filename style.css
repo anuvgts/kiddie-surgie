@@ -16,3 +16,13 @@ html
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+@font-face {
+  font-family: "CanvaSans";
+  src: url("fonts/canva-sans-regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Futura";
+  src: url("fonts/FuturaCyrillicMedium.ttf") format("truetype");
+}
+
+
