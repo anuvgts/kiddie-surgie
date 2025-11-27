@@ -1263,126 +1263,134 @@
         </div>
 
        <!-- teddy + heading -->
-<div class="w-full flex justify-center mb-12">
-  <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-center">
+    <div class="w-full flex justify-center mb-12">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-center">
 
-    <!-- Teddy -->
-    <img
-      src="assets/page5/teddy.png"
-      class="w-28 sm:w-40 md:w-56 lg:w-64 shrink-0"
-    />
+        <!-- Teddy -->
+        <img
+          src="assets/page5/teddy.png"
+          class="w-28 sm:w-40 md:w-56 lg:w-64 shrink-0"
+        />
 
-    <!-- Heading -->
-    <h1
-      style="font-family: 'Rozha One', serif;"
-      class="text-white text-[28px] sm:text-[38px] md:text-[50px] lg:text-[60px] leading-tight sm:leading-none sm:text-left text-center px-3"
-    >
-      We’re here to help
-    </h1>
+        <!-- Heading -->
+        <h1
+          style="font-family: 'Rozha One', serif;"
+          class="text-white text-[28px] sm:text-[38px] md:text-[50px] lg:text-[60px] leading-tight sm:leading-none sm:text-left text-center px-3"
+        >
+          We’re here to help
+        </h1>
 
-  </div>
-</div>
+      </div>
+    </div>
 
-        <!-- form -->
-<form
- action="https://fsw-anu.app.n8n.cloud/webhook/form-submission" method="POST"
-  class="max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
->
-  <!-- Parent Name -->
-  <div>
-  <input
-    type="text"
-    name="parent_name"
-    required
-    class="bg-[#60798D] text-white px-6 py-5 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
-    placeholder="Parent’s Name*"
-  />
-</div>
+    <!-- form -->
+      <form
+      id="contactForm"
+      action="https://fsw-anu.app.n8n.cloud/webhook-test/01caaa65-2cca-4a97-b430-5e94ddc7068e" method="POST"
+        class="max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+      >
+        <!-- Parent Name -->
+        <div>
+        <input
+          type="text"
+          name="parentName"
+          required
+          class="bg-[#60798D] text-white px-6 py-5 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
+          placeholder="Parent’s Name*"
+        />
+      </div>
 
-  <!-- Phone -->
-  
-    <div>
-  <input
-    type="tel"
-    name="phone"
-    required
-    class="bg-[#60798D] backdrop-blur-md text-white px-6 py-5 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
-    placeholder="Phone Number*"
-  />
-</div>
+        <!-- Phone -->
+        
+          <div>
+        <input
+          type="tel"
+          name="phoneNumber"
+          required
+          class="bg-[#60798D] backdrop-blur-md text-white px-6 py-5 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
+          placeholder="Phone Number*"
+        />
+      </div>
 
-  <!-- Email -->
-  <div>
-  <input
-    type="email"
-    name="email"
-    required
-    class="bg-[#60798D] backdrop-blur-md text-white px-6 py-5 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
-    placeholder="Email*"
-  />
-</div>
+        <!-- Email -->
+        <div>
+        <input
+          type="email"
+          name="email"
+          required
+          class="bg-[#60798D] backdrop-blur-md text-white px-6 py-5 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
+          placeholder="Email*"
+        />
+      </div>
 
-  <!-- Child Age -->
- 
-<div>
-  <input
-    type="text"
-    name="child_age"
-    required
-    class="bg-[#60798D] backdrop-blur-md text-white px-6 py-5 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
-    placeholder="Child’s Age*"
-  />
-</div>
+        <!-- Child Age -->
+      <div>
+        <input
+          type="text"
+          name="childAge"
+          required
+          class="bg-[#60798D] backdrop-blur-md text-white px-6 py-5 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
+          placeholder="Child’s Age*"
+        />
+      </div>
 
-  <!-- Service Dropdown -->
-  <div class="relative">
-  <select
-    id="serviceSelect"
-    name="service"
-    required
-    class="bg-[#60798D] backdrop-blur-md text-white px-6 py-5 block text-lg w-full appearance-none cursor-pointer outline-none focus:outline-none focus:ring-0"
-  >
-    <option value="" disabled selected>Select Service*</option>
-    <option class="text-black" value="Pediatric Surgery">Pediatric Surgery</option>
-    <option class="text-black" value="Pediatric Urology">Pediatric Urology</option>
-    <option class="text-black" value="Thoracic Surgery">Thoracic Surgery</option>
-    <option class="text-black" value="Minimal Access Surgery">Minimal Access Surgery</option>
-  </select>
+        <!-- Service Dropdown -->
+        <div class="relative">
+        <select
+          id="serviceSelect"
+          name="selectedService"
+          required
+          class="bg-[#60798D] backdrop-blur-md text-white px-6 py-5 block text-lg w-full appearance-none cursor-pointer outline-none focus:outline-none focus:ring-0"
+        >
+          <option value="" disabled selected>Select Service*</option>
+          <option class="text-black" value="Pediatric Surgery">Pediatric Surgery</option>
+          <option class="text-black" value="Pediatric Urology">Pediatric Urology</option>
+          <option class="text-black" value="Thoracic Surgery">Thoracic Surgery</option>
+          <option class="text-black" value="Minimal Access Surgery">Minimal Access Surgery</option>
+        </select>
+      </div>
+        <!-- Message -->
+        <div>
+        <input
+          name="message"
+          required
+          rows="3"
+          class="bg-[#60798D] backdrop-blur-md text-white px-6 py-5 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
+          placeholder="How Can We Help You*"
+        />
+        </div>
 
-</div>
+          <!-- Buttons -->
+          <div class="mt-6 sm:col-span-2 lg:col-span-3 flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <button
+            type="submit"
+            class="w-60 h-14 bg-[#FAB765] text-white font-bold text-lg rounded-full flex items-center justify-center cursor-pointer"
+          >
+            Submit
+          </button>
+          <!-- SUCCESS POPUP -->
+          <div id="successPopup"
+              class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+            <div class="bg-white p-6 rounded-lg text-center shadow-lg w-80">
+              <h2 class="text-xl font-semibold text-green-600">Success!</h2>
+              <p class="mt-2">Your form has been successfully submitted.</p>
 
+              <button onclick="closePopup()"
+                class="mt-4 bg-[#35516A] text-white px-6 py-2 rounded-lg cursor-pointer">
+                OK
+              </button>
+            </div>
+          </div>
 
-  <!-- Message -->
-  <div>
-  <input
-    name="message"
-    required
-    rows="3"
-    class="bg-[#60798D] backdrop-blur-md text-white px-6 py-5 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
-    placeholder="How Can We Help You*"
-  />
-</div>
-
-
-  <!-- Buttons -->
-  <div class="mt-6 sm:col-span-2 lg:col-span-3 flex flex-col sm:flex-row gap-6 justify-center items-center">
-    <button
-      type="submit"
-      class="w-60 h-14 bg-[#FAB765] text-white font-bold text-lg rounded-full flex items-center justify-center"
-    >
-      Submit
-    </button>
-
-    <a
-      href="https://wa.me/91XXXXXXXXXX"
-      class="w-60 h-14 bg-white text-[#FAB765] font-bold text-lg rounded-full shadow-md flex items-center justify-center"
-      target="_blank"
-    >
-      Chat on Whatsapp
-    </a>
-  </div>
-</form>
-
+          <a
+            href="https://wa.me/6381130476"
+            class="w-60 h-14 bg-white text-[#FAB765] font-bold text-lg rounded-full shadow-md flex items-center justify-center"
+            target="_blank"
+          >
+            Chat on Whatsapp
+          </a>
+        </div>
+      </form>
       </section>
 
       <!-- footer -->
@@ -1454,20 +1462,107 @@
           <img src="assets/page5/instagram.svg" class="w-6" />
           <img src="assets/page5/facebook.svg" class="w-5" />
         </div>
+        <!-- Ask a question section -->
         <button
-          class="w-fit border border-[#35516A] text-[#35516A] px-8 py-3 rounded-lg font-semibold"
+          onclick="openQuestionModal()"
+          class="w-fit border border-[#35516A] text-[#35516A] px-8 py-3 rounded-lg font-semibold cursor-pointer"
         >
           ASK A QUESTION
         </button>
-      </div>
+
+        <!-- backdrop -->
+        <div
+          id="modalBackdrop"
+          class="hidden fixed inset-0 bg-black/50 flex items-center justify-center"
+        >
+          <!-- modal box-->
+          <div  class="bg-white p-6 rounded-lg w-[90%] max-w-md shadow-lg relative">
+            <!-- close button -->
+            <button onclick="closeQuestionModal()" class="absolute top-3 right-3 text-gray-500 text-xl font-bold cursor-pointer">
+              ×
+            </button>
+            <!-- ask a question form-->
+            <form id="questionForm" class="space-y-3 w-[90%] max-w-sm mx-auto">
+              <!-- Name -->
+              <div>
+                <label class="font-medium">Name</label>
+                <input
+                  name="name"
+                  type="text"
+                  required
+                  class="w-full border rounded p-2"
+                  placeholder="Enter your name"
+                />
+              </div>
+
+              <!-- Mobile / WhatsApp -->
+              <div>
+                <label class="font-medium">Mobile Number / WhatsApp Number</label>
+                <input
+                  name="mobileNumber"
+                  type="text"
+                  required
+                  class="w-full border rounded p-2"
+                  placeholder="Enter mobile number"
+                />
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label class="font-medium">Email (Optional)</label>
+                <input
+                  name="emailId"
+                  type="email"
+                  class="w-full border rounded p-2"
+                  placeholder="Enter email"
+                />
+              </div>
+
+              <!-- Question -->
+              <div>
+                <label class="font-medium">Your Question</label>
+                <textarea
+                  name="question"
+                  required
+                  class="w-full border rounded p-2"
+                  rows="3"
+                  placeholder="Type your question here"
+                ></textarea>
+              </div>
+
+              <!-- Upload -->
+              <div>
+                <label class="font-medium">Upload Reports / Images (Optional)</label>
+                <input name="uploadFile" type="file" class="w-full border rounded p-2" multiple />
+              </div>
+
+              <!-- Submit -->
+              <button
+                type="submit"
+                class="w-full bg-[#35516A] text-white py-2 rounded-lg font-semibold cursor-pointer"
+              >
+                Submit
+              </button>
+            </form>
+            <!-- Success popup -->
+            <div id="successPopup"
+                class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+              <div class="bg-white p-6 rounded-lg text-center shadow-lg w-72">
+                <h2 class="text-xl font-semibold text-green-600">Success!</h2>
+                <p class="mt-2">Your form has been submitted.</p>
+                <button onclick="closePopup()" class="mt-4 bg-[#35516A] text-white px-6 py-2 rounded-lg">
+                  OK
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      </div>
       </footer>
-    </section>
-
+      </section>
     </main>
-
     <!-- script -->
     <script src="main.js"></script>
-
   </body>
 </html>

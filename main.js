@@ -27,3 +27,53 @@ Promise.all([
   });
 });
 
+//ask a question modaal section
+function openQuestionModal() {
+    document.getElementById("modalBackdrop").classList.remove("hidden");
+  }
+  function closeQuestionModal() {
+    document.getElementById("modalBackdrop").classList.add("hidden");
+  }
+
+//ask a question section
+  document.getElementById("questionForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    document.getElementById("successPopup").classList.remove("hidden");
+    form.reset();
+    fetch(
+      "https://fsw-anu.app.n8n.cloud/webhook-test/0147c1e4-467c-4e0a-80a4-907a24f0d725",
+      {
+        method: "POST",
+        body: formData,
+      }
+    ).catch((err) => console.log("Webhook error:", err));
+    closeQuestionModal();
+});
+
+
+//appointment section
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();  
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch(
+      "https://fsw-anu.app.n8n.cloud/webhook-test/01caaa65-2cca-4a97-b430-5e94ddc7068e",
+      {
+        method: "POST",
+        body: formData,
+      }
+    ).catch(err => console.error("Webhook Error:", err));
+
+    document.getElementById("successPopup").classList.remove("hidden");
+    form.reset();
+    });
+
+    function closePopup() {
+      document.getElementById("successPopup").classList.add("hidden");
+    }
