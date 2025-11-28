@@ -54,6 +54,30 @@ function openQuestionModal() {
     closeQuestionModal();
 });
 
+//file upload validation
+
+// function validateFile(input) {
+//     const files = input.files;
+//     const allowedTypes = ["image/png", "application/pdf"];
+
+//     for (let i = 0; i < files.length; i++) {
+//       const file = files[i];
+//       const minSize = 5 * 1024;   
+//       const maxSize = 10 * 1024;
+//       //file size
+//       if (file.size < minSize || file.size > maxSize) {
+//         alert(`"${file.name}" must be between 5 KB and 10 KB.`);
+//         input.value = ""; 
+//         return;
+//       }
+//       //file format
+//       if (!allowedTypes.includes(file.type)) {
+//         alert(`"${file.name}" is not allowed. Only PNG and PDF files are accepted.`);
+//         input.value = ""; 
+//         return;
+//       }
+//     }
+//   }
 
 //appointment section
     document.getElementById("contactForm").addEventListener("submit", function (e) {
