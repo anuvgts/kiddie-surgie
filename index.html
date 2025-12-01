@@ -547,7 +547,7 @@
       <!-- Blue overlay -->
       <div class="absolute inset-0 bg-[#476F94]/80"></div>
 
-      <div class="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-10 py-8">
+      <div class="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-2 md:px-4 py-4">
         <div class="flex flex-col md:flex-row items-center md:items-stretch justify-between gap-y-10 md:gap-x-16">
 
           <!-- left content -->
@@ -705,7 +705,8 @@
 
         <!-- part2 -->
         <div class="">
-          <div class="max-w-5xl mx-auto px-2 md:px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
+          <div
+            class="max-w-5xl mx-auto px-2 md:px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
             <!-- Card 1 -->
             <div
               class="bg-[#FAB765] rounded-3xl p-6 h-56 w-full max-w-[250px] flex justify-center items-center text-center">
@@ -835,7 +836,8 @@
         <div
           class="relative w-full h-full bg-[#FAB765]/5 backdrop-blur-md text-white rounded-none flex flex-col items-center justify-center text-center px-4 md:px-10 md:px-16 py-10 md:py-14">
           <!-- Heading -->
-          <h2 style="font-family: 'Rozha One', serif;" class=" text-[28px] sm:text-[32px] md:text-[48px] text-white mb-4">
+          <h2 style="font-family: 'Rozha One', serif;"
+            class=" text-[28px] sm:text-[32px] md:text-[48px] text-white mb-4">
             Why Parents Choose <br />
             Kiddiesurgie?
           </h2>
@@ -887,7 +889,8 @@
               <span class="absolute inset-0 flex items-center justify-center text-2xl sm:text-3xl font-bold">
                 02</span>
             </div>
-            <h3 style="font-family: 'Rozha One', serif;" class=" text-[18px] sm:text-[22px] md:text-[26px] ">Trusted, <br />Local Care
+            <h3 style="font-family: 'Rozha One', serif;" class=" text-[18px] sm:text-[22px] md:text-[26px] ">Trusted,
+              <br />Local Care
             </h3>
           </div>
 
@@ -1132,7 +1135,7 @@
     </section>
 
     <!-- footer -->
-    <section class="relative w-full min-h-screen bg-top bg-contain bg-repeat py-6 px-2"
+    <section class="relative w-full h-auto bg-top bg-contain py-6 px-2"
       style="background-image: url('assets/page3/bg.png')">
       <!-- Light overlay -->
       <div class="absolute inset-0 bg-white/90"></div>
@@ -1204,77 +1207,76 @@
               ASK A QUESTION
             </button>
 
-            <!-- backdrop -->
-            <div id="modalBackdrop" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-[9999]">
-              <!-- modal box-->
-              <div class="bg-white p-6 rounded-lg w-[90%] max-w-md shadow-lg relative">
-                <!-- close button -->
-                <button onclick="closeQuestionModal()"
-                  class="absolute top-3 right-3 text-gray-500 text-xl font-bold cursor-pointer">
-                  ×
-                </button>
-                <!-- ask a question form-->
-                <form id="questionForm" enctype="multipart/form-data" class="space-y-3 w-[90%] max-w-sm mx-auto">
-                  <!-- Name -->
-                  <div>
-                    <label class="font-medium">Name</label>
-                    <input name="name" type="text" required class="w-full border rounded p-2"
-                      placeholder="Enter your name" />
-                  </div>
 
-                  <!-- Mobile / WhatsApp -->
-                  <div>
-                    <label class="font-medium">Mobile Number / WhatsApp Number</label>
-                    <input name="mobileNumber" type="text" required class="w-full border rounded p-2"
-                      placeholder="Enter mobile number" />
-                  </div>
-
-                  <!-- Email -->
-                  <div>
-                    <label class="font-medium">Email (Optional)</label>
-                    <input name="emailId" type="email" class="w-full border rounded p-2" placeholder="Enter email" />
-                  </div>
-
-                  <!-- Question -->
-                  <div>
-                    <label class="font-medium">Your Question</label>
-                    <textarea name="question" required class="w-full border rounded p-2" rows="3"
-                      placeholder="Type your question here"></textarea>
-                  </div>
-
-                  <!-- Upload -->
-                  <div>
-                    <label class="font-medium">Upload Reports / Images (Optional)</label>
-                    <input name="uploadFile" type="file" accept=".png, .pdf" class="w-full border rounded p-2" multiple
-                      onchange="validateFile(this)" />
-                  </div>
-
-                  <!-- Submit -->
-                  <button type="submit"
-                    class="w-full bg-[#35516A] text-white py-2 rounded-lg font-semibold cursor-pointer">
-                    Submit
-                  </button>
-                </form>
-
-                <!-- Success popup -->
-                <div id="successPopup" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-                  <div class="bg-white p-6 rounded-lg text-center shadow-lg w-72">
-                    <h2 class="text-xl font-semibold text-green-600">Success!</h2>
-                    <p class="mt-2">Your form has been submitted.</p>
-                    <button onclick="closePopup()" class="mt-4 bg-[#35516A] text-white px-6 py-2 rounded-lg">
-                      OK
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
+        </div>
+        </div>
         </div>
       </footer>
     </section>
   </main>
-  <!-- script -->
-  <script src="main.js"></script>
+  <!-- backdrop -->
+  <div id="modalBackdrop" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-[50]">
+    <!-- modal box-->
+    <div class="bg-white p-6 rounded-lg w-[90%] max-w-md shadow-lg relative">
+      <!-- close button -->
+      <button onclick="closeQuestionModal()"
+        class="absolute top-3 right-3 text-gray-500 text-xl font-bold cursor-pointer">
+        ×
+      </button>
+      <!-- ask a question form-->
+      <form id="questionForm" enctype="multipart/form-data" class="space-y-3 w-[90%] max-w-sm mx-auto">
+        <!-- Name -->
+        <div>
+          <label class="font-medium">Name</label>
+          <input name="name" type="text" required class="w-full border rounded p-2" placeholder="Enter your name" />
+        </div>
+
+        <!-- Mobile / WhatsApp -->
+        <div>
+          <label class="font-medium">Mobile Number / WhatsApp Number</label>
+          <input name="mobileNumber" type="text" required class="w-full border rounded p-2"
+            placeholder="Enter mobile number" />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="font-medium">Email (Optional)</label>
+          <input name="emailId" type="email" class="w-full border rounded p-2" placeholder="Enter email" />
+        </div>
+
+        <!-- Question -->
+        <div>
+          <label class="font-medium">Your Question</label>
+          <textarea name="question" required class="w-full border rounded p-2" rows="3"
+            placeholder="Type your question here"></textarea>
+        </div>
+
+        <!-- Upload -->
+        <div>
+          <label class="font-medium">Upload Reports / Images (Optional)</label>
+          <input name="uploadFile" type="file" accept=".png, .pdf" class="w-full border rounded p-2" multiple
+            onchange="validateFile(this)" />
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="w-full bg-[#35516A] text-white py-2 rounded-lg font-semibold cursor-pointer">
+          Submit
+        </button>
+      </form>
+
+      <!-- Success popup -->
+      <div id="successPopup" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg text-center shadow-lg w-72">
+          <h2 class="text-xl font-semibold text-green-600">Success!</h2>
+          <p class="mt-2">Your form has been submitted.</p>
+          <button onclick="closePopup()" class="mt-4 bg-[#35516A] text-white px-6 py-2 rounded-lg">
+            OK
+          </button>
+        </div>
+      </div>
+      <!-- script -->
+      <script src="main.js"></script>
 </body>
 
 </html>
