@@ -1,3 +1,6 @@
+ if (navigator.userAgent.includes("Edg/")) {
+    document.body.classList.add("edge-browser");
+  }
 // load navbar
 const loadHTML = (selector, file) =>
   fetch(file)

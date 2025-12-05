@@ -11,6 +11,10 @@ html
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+.edge-browser .teddy-edge-fix {
+  transform: translate(40px, 15px) !important;
+}
+
 @keyframes spin-slow 
 {
   0% { transform: rotate(0deg); }
