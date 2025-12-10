@@ -11,6 +11,12 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
 
+    <!-- Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
@@ -85,24 +91,51 @@
       </section>
       <!-- about section -->
       <section class="py-12 bg-[#456c89] flex justify-center px-2 md:px-4">
-        <div class="w-full max-w-5xl bg-white p-4 md:p-10 rounded-3xl shadow-2xl relative">
+        <div
+          class="w-full max-w-5xl bg-white p-4 md:p-10 rounded-3xl shadow-2xl relative teddy-title-wrap teddy-edge-fix">
+
 
           <!-- Teddy Positioned TOP LEFT -->
-          <img src="assets/teddy.png" class="absolute top-0 left-0
-     translate-y-2 -translate-x-9
-     md:-translate-y-4 md:-translate-x-4
-     teddy-edge-fix
-     w-40 sm:w-56 md:w-72 lg:w-80 xl:w-96 2xl:w-[28rem]
-     pointer-events-none select-none" />
-
-
+          <!-- <img src="assets/teddy.png" class="absolute top-0 left-0
+              translate-y-2 -translate-x-9
+              md:-translate-y-4 md:-translate-x-4
+              teddy-edge-fix
+              w-40 sm:w-56 md:w-72 lg:w-80 xl:w-96 2xl:w-[28rem]
+              pointer-events-none select-none" /> -->
 
           <!-- Heading CENTERED with space from Teddy -->
-          <div class="w-full flex justify-center mb-6 mt-6 pl-10 sm:pl-16 md:pl-20 lg:pl-24">
-            <h2 style="font-family: 'Rozha One', serif;"
-              class="text-[#FBBE63] text-[32px] sm:text-[48px] md:text-[60px] text-center leading-tight">
-              About Kiddie Surgie
-            </h2>
+          <!-- <div class="w-full flex justify-center mb-6 mt-6 pl-10 sm:pl-16 md:pl-20 lg:pl-24">
+              <h2 style="font-family: 'Rozha One', serif;"
+                class="text-[#FBBE63] text-[32px] sm:text-[48px] md:text-[60px] text-center leading-tight">
+                About Kiddie Surgie
+              </h2>
+            </div> -->
+          <div class="relative flex flex-col items-center md:block">
+
+            <!-- Teddy -->
+            <img src="assets/teddy.png" class="pointer-events-none select-none
+         w-56  md:w-72 lg:w-80 xl:w-96 2xl:w-[28rem]
+
+         /* Mobile */
+         static mb-2
+
+         /* Desktop positioning */
+         md:absolute md:top-0 md:left-0
+         md:-translate-x-16 md:-translate-y-14
+         lg:-translate-x-16 lg:-translate-y-18
+
+         teddy-edge-fix" />
+            <!-- Heading -->
+            <div class="w-full flex justify-center mb-6
+           mt-0 md:mt-6
+           pl-0 md:pl-20 lg:pl-24">
+              <h2 style="font-family: 'Rozha One', serif;" class="text-[#FBBE63]
+             text-[33px] sm:text-[48px] md:text-[60px]
+             text-center leading-tight">
+                About Kiddie Surgie
+              </h2>
+            </div>
+
           </div>
 
 
@@ -113,31 +146,28 @@
           </div>
 
           <!-- Paragraph 1 -->
-          <p style="font-family: 'Futura', sans-serif;" class="text-[#9AA2A3] text-[16px] px-2 sm:px-10 text-center">
+          <p style="font-family: 'Futura', sans-serif;"
+            class="text-[#9AA2A3] text-[22px] md:text-[18px] px-2 sm:px-10 text-center md:text-center ">
             The Kiddie Surgie team, led by Dr Balamourougane P, Dr Vinayak S. Rengan, and Dr Aseesh Varma, provides
             expert paediatric and neonatal surgery in Chennai. We specialise in treating paediatric surgical problems
             including hernias, urological, gastrointestinal, thoracic, and oncological conditions in newborns and
-            children till
-            the age of 18.
+            children till the age of 18.
           </p>
 
           <!-- Paragraph 2 -->
           <p style="font-family: 'Futura', sans-serif;"
-            class="mt-6 text-[#9AA2A3] text-[16px] px-2 sm:px-10 text-center">
+            class="mt-6 text-[#9AA2A3] text-[22px] md:text-[18px] px-2 sm:px-10 text-center">
             Our team offers expertise in Minimally invasive Paediatric surgery including Laparoscopy and Thoracoscopy,
             offering safer procedures with smaller scars, less pain, and faster recovery resulting in shorter hospital
-            stay. From
-            life-saving neonatal operations to routine day-care surgeries, our approach combines advanced surgical skill
-            with
-            a child-friendly environment that keeps families reassured and children comfortable.
+            stay. From life-saving neonatal operations to routine day-care surgeries, our approach combines advanced surgical skill
+            with a child-friendly environment that keeps families reassured and children comfortable.
           </p>
 
           <!-- Paragraph 3 -->
           <p style="font-family: 'Futura', sans-serif;"
-            class="mt-6 text-[#9AA2A3] text-[16px] px-2 sm:px-10 text-center">
+            class="mt-6 text-[#9AA2A3] text-[22px] md:text-[18px] px-2 sm:px-10 text-center">
             At Kiddie Surgie, every child receives safe, specialised, and compassionate care, guided by years of
-            expertise
-            and a commitment to excellence in paediatric surgery in Chennai.
+            expertise and a commitment to excellence in paediatric surgery in Chennai.
           </p>
 
         </div>
@@ -163,19 +193,19 @@
             <div class="flex justify-left sm:justify-start mt-0.5 mb-6">
               <div class="bg-[#456c89] text-white px-5 py-2 rounded-3xl flex items-center gap-2 w-auto">
                 <img src="assets/blob.png" class="w-10 sm:w-12 h-auto" />
-                <h2 style="font-family: 'Rozha One', serif;" class=" text-[22px] md:text-[26px] ">
+                <h2 style="font-family: 'Rozha One', serif;" class=" text-[26px] md:text-[26px] ">
                   Scope of services
                 </h2>
               </div>
             </div>
             <!-- Description -->
             <h4 style="font-family: 'Futura', sans-serif; "
-              class=" text-[18px] sm:text-[19px] md:text-[20px]  mb-5 text-left sm:text-left justify-text">
+              class=" text-[21px] md:text-[22px]  mb-5 text-left sm:text-left text-justify">
               Paediatric GI & Urology, Paediatric Thoracic Surgery, Neonatal
               Surgery, Paediatric Onco Surgery
             </h4>
             <h4 style="font-family: 'Futura', sans-serif; "
-              class="text-white text-[18px] sm:text-[19px] md:text-[20px] text-left sm:text-left justify-text">
+              class="text-white text-[21px] md:text-[21px]  text-left sm:text-left text-justify">
               Evidence-based care across newborn, infant, child, and
               adolescent surgery with minimal scars and quick recovery. From
               simple day-care surgeries to complex neonatal and cancer work,
@@ -561,17 +591,17 @@
           <!-- left content -->
           <div class="flex-1 flex flex-col items-center md:items-start justify-center px-2 text-center md:text-left">
             <h1 style="font-family: 'Rozha One', serif;"
-              class="text-white text-[28px] sm:text-[34px] md:text-[40px] lg:text-[48px]  mb-2 leading-tight sm:leading-snug md:leading-snug whitespace-nowrap">
+              class="text-white text-[30px] md:text-[40px] lg:text-[48px]  mb-2 leading-tight sm:leading-snug md:leading-snug whitespace-nowrap">
               Message by founder & <br> Chief surgeon
             </h1>
 
             <h3 style="font-family: 'CanvaSans', sans-serif;"
-              class="text-[#FDBF67] font-bold text-[22px] sm:text-[24px] md:text-[26px] mb-6 leading-tight sm:leading-snug md:leading-snug">
+              class="text-[#FDBF67] font-bold text-[22px] md:text-[26px] mb-6 leading-tight sm:leading-snug md:leading-snug">
               Dr Balamourougane
             </h3>
 
             <p style="font-family: 'Futura', sans-serif;"
-              class="text-white  text-base sm:text-lg md:text-xl max-w-xl mx-auto md:mx-0 leading-relaxed">
+              class="text-white text-[22px] md:text-[20px] max-w-xl mx-auto md:mx-0 leading-relaxed text-justify ">
               At Kiddie Surgie, I have always believed that every child who comes
               to us deserves not only expert surgical care but also warmth,
               reassurance and the feeling of being truly looked after. Paediatric
@@ -604,14 +634,14 @@
       <div class="relative z-10 max-w-7xl w-full mx-auto text-center py-4 px-2 md:px-8 lg:px-16">
         <!-- Heading -->
         <h2 style="font-family: 'Rozha One', serif;"
-          class="text-[36px] sm:text-[40px] md:text-[48px] text-[#456c89] mb-4 leading-tight">
+          class="text-[34px] sm:text-[40px] md:text-[54px] text-[#456c89] mb-4 leading-tight">
           Meet our Pediatric Surgeons
         </h2>
         <!-- Sub heading -->
         <p style="font-family: 'Futura', sans-serif; "
-          class=" text-[18px] md:text-[20px] text-[#9AA2A3]  mx-auto mb-10 leading-relaxed">
+          class=" text-[22px] md:text-[20px] text-[#9AA2A3]  mx-auto mb-10 leading-relaxed">
           Fellowship-trained paediatric surgeons specialising in minimally
-          invasive surgery, oncology and urology. Committed <br>to guiding parents
+          invasive surgery, oncology and urology. Committed <br class="hidden sm:block" />to guiding parents
           and ensuring a safe, stress-free surgical experience for children.
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center px-2 md:px-6">
@@ -625,7 +655,7 @@
             </div>
 
             <h4 style="font-family: 'Rozha One', serif;"
-              class=" text-[18px] md:text-[20px] mb-6 text-center whitespace-nowrap">
+              class=" text-[20px] md:text-[20px] mb-6 text-center whitespace-nowrap">
               Dr Balamourougane P
             </h4>
 
@@ -644,7 +674,7 @@
             </div>
 
             <h4 style="font-family: 'Rozha One', serif;"
-              class=" text-[18px] md:text-[20px] mb-6 text-center whitespace-nowrap">
+              class=" text-[20px] md:text-[20px] mb-6 text-center whitespace-nowrap">
               Dr Vinayak Rengan
             </h4>
 
@@ -661,7 +691,7 @@
             <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden mb-6 mx-auto">
               <img src="assets/page3/person3.jpg" class="w-full h-full object-cover object-top" />
             </div>
-            <h4 style="font-family: 'Rozha One', serif;" class=" text-[18px] md:text-[20px] mb-6 text-center ">
+            <h4 style="font-family: 'Rozha One', serif;" class=" text-[20px] md:text-[20px] mb-6 text-center ">
               Dr Vankam Aseesh Varma
             </h4>
 
@@ -686,23 +716,23 @@
             <!-- Heading Badge -->
             <div
               class="flex items-center gap-3 bg-[#FBBE63] px-4 sm:px-6 py-2 sm:py-3 rounded-2xl w-fit mx-auto sm:mx-0">
-              <img src="assets/page4/heart.png" class="w-8 sm:w-10 h-auto" />
-              <h2 style="font-family: 'Rozha One', serif;" class=" text-[28px] md:text-[32px]  text-white">
+              <img src="assets/page4/heart.png" class="w-16 sm:w-12 h-auto" />
+              <h2 style="font-family: 'Rozha One', serif;" class=" text-[26px] md:text-[32px]  text-white">
                 Comprehensive Pediatric Surgical Services
               </h2>
             </div>
 
             <!-- Paragraphs -->
             <div style="font-family: 'Futura', sans-serif; "
-              class="text-white  text-base sm:text-lg md:text-xl leading-relaxed space-y-6 text-center sm:text-left">
-              <p>
+              class="text-white  text-[22px] md:text-[21px] leading-relaxed space-y-6 px-2 text-left sm:text-left">
+              <p class="text-justify ">
                 At our Kiddie Surgie paediatric surgery in Chennai, we provide
                 specialised surgical care for newborns, children and teenagers
                 across multiple leading hospitals including Dr Mehta’s
                 Hospitals (Chetpet Campus and Global Campus, Velappanchavadi)
                 and Apollo Children’s Hospital.
               </p>
-              <p>
+              <p class="text-justify">
                 Our team of experienced paediatric surgeons use advanced
                 laparoscopic and minimally invasive techniques to ensure
                 precise, gentle and safe care. With smaller incisions,
@@ -721,81 +751,81 @@
             class="max-w-5xl mx-auto px-2 md:px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center pb-10">
             <!-- Card 1 -->
             <div
-              class="bg-[#FAB765] rounded-3xl p-6 h-56 w-full max-w-[250px] flex flex-col justify-start items-center pt-4 text-center">
+              class="bg-[#FAB765] rounded-3xl p-6 h-66 md:h-56 w-full  max-w-[320px]  md:max-w-[250px] flex flex-col justify-start items-center pt-4 text-center">
               <h4 style="font-family: 'Rozha One', serif;"
-                class="text-[#476F94]  text-[18px] md:text-[20px] font-bold font-mono">
+                class="text-[#476F94]  text-[22px] md:text-[24px] font-bold font-mono">
                 Hernia
               </h4>
             </div>
 
             <!-- Card 2 -->
-            <div class="bg-[#FAB765] rounded-3xl p-6 h-56 w-full max-w-[250px] 
+            <div class="bg-[#FAB765] rounded-3xl p-6 h-66 md:h-56 w-full  max-w-[320px]  md:max-w-[250px]
          flex flex-col justify-start items-center pt-4 text-center">
               <h4 style="font-family: 'Rozha One', serif;"
-                class="text-[#476F94]  text-[18px] md:text-[20px] font-bold font-mono">
+                class="text-[#476F94]  text-[22px] md:text-[22px] font-bold font-mono">
                 Undescended Testis
               </h4>
             </div>
 
             <!-- Card 3 -->
-            <div class="bg-[#FAB765] rounded-3xl p-6 h-56 w-full max-w-[250px] 
+            <div class="bg-[#FAB765] rounded-3xl p-6 h-66 md:h-56 w-full  max-w-[320px]  md:max-w-[250px] 
          flex flex-col justify-start items-center pt-4 text-center">
               <h4 style="font-family: 'Rozha One', serif;"
-                class="text-[#476F94]  text-[18px] md:text-[20px] font-bold font-mono">
+                class="text-[#476F94]  text-[22px] md:text-[22px] font-bold font-mono">
                 Hypospadias
               </h4>
             </div>
 
             <!-- Card 4 -->
-            <div class="bg-[#FAB765] rounded-3xl p-6 h-56 w-full max-w-[250px] 
-         flex flex-col justify-start items-center pt-4 text-center">
+            <div
+              class="bg-[#FAB765] rounded-3xl p-6 h-66 md:h-56 w-full  max-w-[320px]  md:max-w-[250px] flex flex-col justify-start items-center pt-4 text-center">
               <h4 style="font-family: 'Rozha One', serif;"
-                class="text-[#476F94]  text-[18px] md:text-[20px] font-bold font-mono">
+                class="text-[#476F94]  text-[22px] md:text-[22px] font-bold font-mono">
                 Circumcision
               </h4>
             </div>
 
             <!-- Card 5 -->
-            <div class="bg-[#FAB765] rounded-3xl p-6 h-56 w-full max-w-[250px] 
+            <div class="bg-[#FAB765] rounded-3xl p-6 h-66 md:h-56 w-full  max-w-[320px]  md:max-w-[250px]
          flex flex-col justify-start items-center pt-4 text-center">
               <h4 style="font-family: 'Rozha One', serif;"
-                class="text-[#476F94]  text-[18px] md:text-[20px] font-bold font-mono">
+                class="text-[#476F94]  text-[22px] md:text-[22px] font-bold font-mono">
                 Tongue Tie
               </h4>
             </div>
 
             <!-- Card 6 -->
-            <div class="bg-[#FAB765] rounded-3xl p-6 h-56 w-full max-w-[250px] 
+            <div class="bg-[#FAB765] rounded-3xl p-6 h-66 md:h-56 w-full  max-w-[320px]  md:max-w-[250px]
          flex flex-col justify-start items-center pt-4 text-center">
               <h4 style="font-family: 'Rozha One', serif;"
-                class="text-[#476F94]  text-[18px] md:text-[20px] font-bold font-mono">
+                class="text-[#476F94]  text-[22px] md:text-[22px] font-bold font-mono">
                 PUV / VUR
               </h4>
             </div>
 
             <!-- Card 7 -->
-            <div class="bg-[#FAB765] rounded-3xl p-6 h-56 w-full max-w-[250px] 
+            <div class="bg-[#FAB765] rounded-3xl p-6 h-66 md:h-56 w-full  max-w-[320px]  md:max-w-[250px] 
          flex flex-col justify-start items-center pt-4 text-center">
               <h4 style="font-family: 'Rozha One', serif;"
-                class="text-[#476F94]  text-[18px] md:text-[20px] font-bold font-mono">
+                class="text-[#476F94]  text-[22px] md:text-[22px] font-bold font-mono">
                 Neonatal Surgery
               </h4>
             </div>
 
             <!-- Card 8 -->
-            <div class="bg-[#FAB765] rounded-3xl p-6 h-56 w-full max-w-[250px] 
+            <div class="bg-[#FAB765] rounded-3xl p-6 h-66 md:h-56 w-full  max-w-[320px]  md:max-w-[250px]
          flex flex-col justify-start items-center pt-4 text-center">
               <h4 style="font-family: 'Rozha One', serif;"
-                class="text-[#476F94]  text-[18px] md:text-[20px] font-bold font-mono">
+                class="text-[#476F94]  text-[22px] md:text-[22px] font-bold font-mono">
                 Colorectal Disease<br />Hirschsprung Disease
               </h4>
             </div>
 
             <!-- card 9 -->
-            <div class="bg-[#FAB765] rounded-3xl p-6 h-56 w-full max-w-[250px] 
+            <div class="bg-[#FAB765] rounded-3xl p-6 h-66 md:h-56 w-full  max-w-[320px]  md:max-w-[250px] 
          flex flex-col justify-start items-center pt-4 text-center">
               <h4 style="font-family: 'Rozha One', serif;"
-                class="text-[#476F94]  text-[18px] md:text-[20px] font-bold font-mono">
+                class="text-[#476F94]  text-[22px] md:text-[22px] font-bold font-mono">
                 Complex Thoracic
               </h4>
             </div>
@@ -818,18 +848,18 @@
           class="relative mx-auto bg-[#476F94]/60 backdrop-blur-md text-white rounded-[44px] px-4 sm:px-10 md:px-16 py-8 flex flex-col items-center text-center shadow-lg">
           <!-- Heading -->
           <h2 style="font-family: 'Rozha One', serif;"
-            class=" text-[30px] sm:text-[48px] md:text-[56px]  text-[#FAB765] mb-4">
+            class=" text-[34px] sm:text-[48px] md:text-[56px] text-[#FAB765] mb-4">
             What Our Patient Say
           </h2>
           <!-- Paragraph -->
-          <p style="font-family: 'Futura', sans-serif; " class=" text-[18px] md:text-[22px] mb-4 max-w-3xl">
+          <p style="font-family: 'Futura', sans-serif; " class=" text-[22px] md:text-[21px] mb-4 max-w-3xl">
             The Kiddiesurgie Team have made a huge difference in the health of
-            <br />
+           <br class="hidden sm:block" />
             my son. We so appreciate the care and concern they have shown us
-            <br />
+            <br class="hidden sm:block" />
             while improving our daily quality of life. The professionalism and
-            <br />
-            competence they have exhibited is second to none. <br />
+            <br class="hidden sm:block" />
+            competence they have exhibited is second to none. <br class="hidden sm:block" />
             Thank you!
           </p>
           <!-- Author -->
@@ -848,13 +878,12 @@
         <div
           class="relative w-full h-full bg-[#FAB765]/5 backdrop-blur-md text-white rounded-none flex flex-col items-center justify-center text-center px-4 md:px-10 md:px-16 py-10 md:py-14">
           <!-- Heading -->
-          <h2 style="font-family: 'Rozha One', serif;"
-            class=" text-[28px] sm:text-[32px] md:text-[48px] text-white mb-4">
+          <h2 style="font-family: 'Rozha One', serif;" class=" text-[32px] md:text-[52px] text-white mb-4">
             Why Parents Choose <br />
             Kiddiesurgie?
           </h2>
           <!-- Paragraph -->
-          <p style="font-family: 'Futura', sans-serif; " class="text-[16px] max-w-3xl mx-auto">
+          <p style="font-family: 'Futura', sans-serif; " class="text-[22px] md:text-[21px] max-w-3xl mx-auto">
             Our commitment to excellence, accessibility and compassionate care
             sets us apart. Here’s why families and physicians across Central
             Texas trust us with their pediatric surgical needs.
@@ -869,14 +898,14 @@
         <!-- card 1 -->
         <div class="bg-[#476F94] text-white p-4 rounded-3xl shadow-lg">
           <div class="flex flex-row sm:flex-row sm:items-center gap-4 mb-4">
-            <div class="relative w-14 h-14 sm:w-20 sm:h-20 flex-none">
+            <div class="relative w-16 h-16 sm:w-20 sm:h-20 flex-none">
               <img src="assets/page5/shape.svg"
                 class="w-full h-full object-contain animate-[spin-slow_8s_linear_infinite]" />
               <span class="absolute inset-0 flex items-center justify-center text-2xl sm:text-3xl font-bold">01</span>
             </div>
 
-            <h3 style="font-family: 'Rozha One', serif;" class="text-[18px] sm:text-[22px] md:text-[26px]">
-              Experience You Can <br>Trust
+            <h3 style="font-family: 'Rozha One', serif;" class="text-[22px] md:text-[26px]">
+              Experience You Can  <br class="hidden sm:block" /> Trust
             </h3>
           </div>
 
@@ -884,7 +913,7 @@
           <hr class="border-white/40 mb-4" />
 
           <p style="font-family: 'Futura', sans-serif; " style="font-family: 'Futura', sans-serif; "
-            class=" text-white/90 leading-relaxed">
+            class=" text-white/90 leading-relaxed text-[22px] md:text-[19px] text-justify ">
             For more than two decades, our team has cared for
             newborns, infants and children with both simple and complex
             surgical conditions. Led by highly trained paediatric and
@@ -897,20 +926,21 @@
         <!-- card 2 -->
         <div class="bg-[#476F94] text-white p-4 rounded-3xl shadow-lg">
           <div class="flex flex-row sm:flex-row sm:items-center gap-4 mb-4">
-            <div class="relative w-14 h-14 sm:w-20 sm:h-20 flex-none">
+            <div class="relative w-16 h-16 sm:w-20 sm:h-20 flex-none">
               <img src="assets/page5/shape.svg"
                 class="w-full h-full object-contain animate-[spin-slow_8s_linear_infinite]" />
               <span class="absolute inset-0 flex items-center justify-center text-2xl sm:text-3xl font-bold">
                 02</span>
             </div>
-            <h3 style="font-family: 'Rozha One', serif;" class=" text-[18px] sm:text-[22px] md:text-[26px] ">
-              Specialised Pediatric & <br>Neonatal Care
+            <h3 style="font-family: 'Rozha One', serif;" class=" text-[22px] md:text-[26px] ">
+              Specialised Pediatric&  <br class="hidden sm:block" /> Neonatal Care
             </h3>
           </div>
 
           <hr class="border-white/40 mb-4" />
 
-          <p style="font-family: 'Futura', sans-serif; " class=" text-white/90 leading-relaxed">
+          <p style="font-family: 'Futura', sans-serif; "
+            class=" text-white/90 leading-relaxed text-[22px] md:text-[19px] text-justify ">
             We focus exclusively on paediatric surgery, paediatric urology,
             thoracic and neonatal surgery. This means your child receives
             care that is tailored to their age, anatomy and unique needs.
@@ -923,19 +953,20 @@
         <!-- card 3 -->
         <div class="bg-[#476F94] text-white p-4 rounded-3xl shadow-lg">
           <div class="flex flex-row sm:flex-row sm:items-center gap-4 mb-4">
-            <div class="relative w-14 h-14 sm:w-20 sm:h-20 flex-none">
+            <div class="relative w-16 h-16 sm:w-20 sm:h-20 flex-none">
               <img src="assets/page5/shape.svg"
                 class="w-full h-full object-contain animate-[spin-slow_8s_linear_infinite]" />
               <span class="absolute inset-0 flex items-center justify-center text-2xl sm:text-3xl font-bold">03</span>
             </div>
-            <h3 style="font-family: 'Rozha One', serif;" class=" text-[18px] sm:text-[22px] md:text-[26px] ">
-              Family-First <br>Approach
+            <h3 style="font-family: 'Rozha One', serif;" class=" text-[22px] md:text-[26px] ">
+              Family-First  <br class="hidden sm:block" /> Approach
             </h3>
           </div>
 
           <hr class="border-white/40 mb-4" />
 
-          <p style="font-family: 'Futura', sans-serif; " class=" text-white/90 leading-relaxed">
+          <p style="font-family: 'Futura', sans-serif; "
+            class=" text-white/90 leading-relaxed text-[22px] md:text-[19px] text-justify ">
             We treat every child as we would our own. We take time to
             explain the diagnosis, discuss treatment options in simple
             language, and support parents at every step. Our approach
@@ -947,20 +978,21 @@
         <!-- card 4 -->
         <div class="bg-[#476F94] text-white p-4 rounded-3xl shadow-lg">
           <div class="flex flex-row sm:flex-row sm:items-center gap-4 mb-4">
-            <div class="relative w-14 h-14 sm:w-20 sm:h-20 flex-none">
+            <div class="relative w-16 h-16 sm:w-20 sm:h-20 flex-none">
               <img src="assets/page5/shape.svg"
                 class="w-full h-full object-contain animate-[spin-slow_8s_linear_infinite]" />
               <span class="absolute inset-0 flex items-center justify-center text-2xl sm:text-3xl font-bold">04</span>
             </div>
-            <h3 style="font-family: 'Rozha One', serif;" class=" text-[18px] sm:text-[22px] md:text-[26px] ">
-              Advanced Laparoscopy & <br>Minimally Invasive
+            <h3 style="font-family: 'Rozha One', serif;" class=" text-[22px] md:text-[26px] ">
+              Advanced Laparoscopy &  <br class="hidden sm:block" /> Minimally Invasive
               Surgery
             </h3>
           </div>
 
           <hr class="border-white/40 mb-4" />
 
-          <p style="font-family: 'Futura', sans-serif; " class=" text-white/90 leading-relaxed">
+          <p style="font-family: 'Futura', sans-serif; "
+            class=" text-white/90 leading-relaxed text-[22px] md:text-[19px] text-justify">
             Whenever possible, we offer minimally invasive laparoscopic
             and thoracoscopic surgeries for faster recovery, smaller scars
             and shorter hospital stays. Our team is trained in the latest
@@ -972,22 +1004,22 @@
         <!-- card 5 -->
         <div class="bg-[#476F94] text-white p-4 rounded-3xl shadow-lg">
           <div class="flex flex-row sm:flex-row sm:items-center gap-4 mb-4">
-            <div class="relative w-14 h-14 sm:w-20 sm:h-20 flex-none">
+            <div class="relative w-16 h-16 sm:w-20 sm:h-20 flex-none">
               <img src="assets/page5/shape.svg"
                 class="w-full h-full object-contain animate-[spin-slow_8s_linear_infinite]" />
               <span class="absolute inset-0 flex items-center justify-center text-2xl sm:text-3xl font-bold">05</span>
             </div>
-            <h3 style="font-family: 'Rozha One', serif;" class=" text-[18px] sm:text-[22px] md:text-[26px]">
+            <h3 style="font-family: 'Rozha One', serif;" class=" text-[22px] md:text-[26px]">
               Round-the-Clock
               Availability & Easy
-
               Access
             </h3>
           </div>
 
           <hr class="border-white/40 mb-4" />
 
-          <p style="font-family: 'Futura', sans-serif; " class=" text-white/90 leading-relaxed">
+          <p style="font-family: 'Futura', sans-serif; "
+            class=" text-white/90 leading-relaxed text-[22px] md:text-[19px] text-justify">
             Surgical issues in children often appear suddenly. That is why
             our surgeons are available for urgent assessments, quick
             appointments and rapid decision-making. We coordinate closely
@@ -999,12 +1031,12 @@
         <!-- card 6 -->
         <div class="bg-[#476F94] text-white p-4 rounded-3xl shadow-lg">
           <div class="flex flex-row sm:flex-row sm:items-center gap-4 mb-4">
-            <div class="relative w-14 h-14 sm:w-20 sm:h-20 flex-none">
+            <div class="relative w-16 h-16 sm:w-20 sm:h-20 flex-none">
               <img src="assets/page5/shape.svg"
                 class="w-full h-full object-contain animate-[spin-slow_8s_linear_infinite]" />
               <span class="absolute inset-0 flex items-center justify-center text-2xl sm:text-3xl font-bold">06</span>
             </div>
-            <h3 style="font-family: 'Rozha One', serif;" class=" text-[18px] sm:text-[22px] md:text-[26px] ">
+            <h3 style="font-family: 'Rozha One', serif;" class=" text-[22px]  md:text-[26px] ">
               Strong Follow-Up &
 
               Long-Term Support
@@ -1013,7 +1045,8 @@
 
           <hr class="border-white/40 mb-4" />
 
-          <p style="font-family: 'Futura', sans-serif; " class=" text-white/90 leading-relaxed">
+          <p style="font-family: 'Futura', sans-serif; "
+            class=" text-white/90 leading-relaxed text-[22px] md:text-[19px] text-justify">
             After surgery, we continue to guide families with personalised follow-up plans. Our structured post-
             operative care helps children recover safely and grow well.
           </p>
@@ -1026,8 +1059,8 @@
       <!-- Heading -->
       <div class="max-w-5xl mx-auto text-center mb-8">
         <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-4">
-          <img src="assets/page5/msg.png" class="w-20 h-20" />
-          <h2 style="font-family: 'Rozha One', serif;" class=" text-[28px] text-[32px] md:text-[48px] text-white">
+          <img src="assets/page5/msg.png" class="w-22 h-22" />
+          <h2 style="font-family: 'Rozha One', serif;" class=" text-[40px] md:text-[50px] text-white">
             FAQs for Parents
           </h2>
         </div>
@@ -1036,49 +1069,48 @@
       <!-- FAQ List -->
       <div class="max-w-5xl mx-auto flex flex-col gap-6">
         <!-- FAQ items -->
-        <div class="bg-[#60798D]/60 backdrop-blur-sm text-white px-8 py-6 flex justify-between items-center">
-          <p style="font-family: 'Futura', sans-serif; " class=" text-[16px]">
+        <div class="bg-[#60798D]/60 backdrop-blur-sm text-white px-4 py-5 flex justify-between items-center">
+          <p style="font-family: 'Futura', sans-serif; " class=" text-[20px] md:text-[19px]">
             1. Is Laparoscopy Surgery Safe For Children?
           </p>
-          <img src="assets/page5/downarrow.png" class="w-8 h-5" />
+          <img src="assets/page5/downarrow.png" class="w-6 h-4" />
         </div>
 
-        <div class="bg-[#60798D]/60 backdrop-blur-sm text-white px-8 py-6 flex justify-between items-center">
-          <p style="font-family: 'Futura', sans-serif; " class=" text-[16px]">
+        <div class="bg-[#60798D]/60 backdrop-blur-sm text-white px-4 py-5 flex justify-between items-center">
+          <p style="font-family: 'Futura', sans-serif; " class=" text-[20px] md:text-[19px]">
             2. How soon can my child return to school?
           </p>
-          <img src="assets/page5/downarrow.png" class="w-8 h-5" />
+          <img src="assets/page5/downarrow.png" class="w-6 h-4" />
         </div>
 
-        <div class="bg-[#60798D]/60 backdrop-blur-sm text-white px-8 py-6 flex justify-between items-center">
-          <p style="font-family: 'Futura', sans-serif; " class=" text-[16px]">
+        <div class="bg-[#60798D]/60 backdrop-blur-sm text-white px-4 py-5 flex justify-between items-center">
+          <p style="font-family: 'Futura', sans-serif; " class=" text-[20px] md:text-[19px]">
             3. Can parents stay with the child?
           </p>
-          <img src="assets/page5/downarrow.png" class="w-8 h-5" />
+          <img src="assets/page5/downarrow.png" class="w-6 h-4" />
         </div>
 
-        <div class="bg-[#60798D]/60 backdrop-blur-sm text-white px-8 py-6 flex justify-between items-center">
-          <p style="font-family: 'Futura', sans-serif; " class=" text-[16px]">
+        <div class="bg-[#60798D]/60 backdrop-blur-sm text-white px-4 py-5 flex justify-between items-center">
+          <p style="font-family: 'Futura', sans-serif; " class=" text-[20px] md:text-[19px]">
             4. Do you offer cashless insurance?
           </p>
-          <img src="assets/page5/downarrow.png" class="w-8 h-5" />
+          <img src="assets/page5/downarrow.png" class="w-6 h-4" />
         </div>
       </div>
 
-      <div class="w-full flex justify-center mt-14 mb-4">
+      <div class="w-full flex justify-center mt-14 mb-6">
         <button class="bg-[#FAB765] text-white font-bold text-xl px-12 py-4 rounded-full shadow-md">
           Book an Appointment
         </button>
       </div>
 
       <!-- teddy + heading -->
-      <div class="max-w-5xl mx-auto text-center mb-4">
-        <div class="flex flex-col md:flex-row justify-center items-center gap-0 md:gap-2 mb-4">
+      <div class="max-w-5xl mx-auto text-center mb-8 md:mb-4">
+        <div class="flex flex-col md:flex-row justify-center items-center gap-0 md:gap-2 mb-4 md:mb-6">
 
-          <img src="assets/page5/teddy.png" class="w-44 sm:w-52 md:w-60 lg:w-72 md:-ml-16" />
+          <img src="assets/page5/teddy.png" class="hidden md:block w-44 sm:w-52 md:w-60 lg:w-72 md:-ml-24" />
 
-          <h2 style="font-family: 'Rozha One', serif;"
-            class="text-[28px] sm:text-[32px] md:text-[48px] text-white md:-ml-14">
+          <h2 style="font-family: 'Rozha One', serif;" class="text-[36px] md:text-[48px] text-white md:-ml-16">
             We’re here to help
           </h2>
 
@@ -1124,10 +1156,16 @@
           <select id="serviceSelect" name="selectedService" required
             class="bg-[#60798D] backdrop-blur-md text-white px-2 py-3 block text-lg w-full appearance-none cursor-pointer outline-none focus:outline-none focus:ring-0">
             <option value="" disabled selected>Select Service*</option>
-            <option class="text-black" value="Pediatric Surgery">Pediatric Surgery</option>
-            <option class="text-black" value="Pediatric Urology">Pediatric Urology</option>
-            <option class="text-black" value="Thoracic Surgery">Thoracic Surgery</option>
-            <option class="text-black" value="Minimal Access Surgery">Minimal Access Surgery</option>
+            <option class="text-black" value="Hernia">Hernia</option>
+            <option class="text-black" value="Undescended Testis">Undescended Testis</option>
+            <option class="text-black" value="Hypospadias">Hypospadias</option>
+            <option class="text-black" value="Circumcision">Circumcision</option>
+            <option class="text-black" value="Tongue Tie">Tongue Tie</option>
+            <option class="text-black" value="PUV / VUR">PUV / VUR</option>
+            <option class="text-black" value="Neonatal Surgery">Neonatal Surgery</option>
+            <option class="text-black" value="Colorectal Disease Hirschsprung Disease">Colorectal Disease Hirschsprung
+              Disease</option>
+            <option class="text-black" value="Complex Thoracic">Complex Thoracic</option>
           </select>
         </div>
         <!-- Message -->
@@ -1183,60 +1221,63 @@
               items-start
               gap-10 sm:gap-14 md:gap-20 lg:gap-24
               text-[#476F94]
-              w-full px-6
+              w-full md:px-8
             ">
           <!-- Column 1 -->
           <div
             class="w-fit mx-auto sm:mx-0 flex flex-col space-y-4 items-center sm:items-start text-center sm:text-left">
-            <img src="assets/page5/kiddiesurgie.png" class="w-40 sm:w-44 md:w-48 lg:w-56 h-auto" />
-            <p style="font-family: 'Futura', sans-serif; " class=" text-[16px]">
-              Our compassionate team is <br />
-              here to make your child’s <br />
-              surgical journey as smooth <br />
+            <img src="assets/page5/kiddiesurgie.png" class="w-74 sm:w-46 md:w-44 lg:w-52 h-auto" />
+            <p style="font-family: 'Futura', sans-serif; " class=" text-[24px] md:text-[18px] text-justify [text-align-last:justify]">
+              Our compassionate team is <br class="hidden sm:block" />
+              here to make your child’s <br class="hidden sm:block" />
+              surgical journey as smooth <br class="hidden sm:block" />
               and stress-free as possible.
+
             </p>
-            <button class="w-fit flex items-center gap-3 bg-[#FAB765] px-6 py-3 rounded-full 
-                 text-white font-semibold shadow">
-              <img src="assets/page5/phone.png" class="w-5 md:w-6" />
+            <button class="w-fit flex items-center gap-1 bg-[#FAB765] px-6 text-[] md:px-6 py-3 md:py-3 rounded-full 
+                 text-white font-semibold shadow text-[22px] md:text-[16px]">
+              <img src="assets/page5/phone.png" class="w-8 md:w-5" />
               +91 98********
             </button>
           </div>
 
           <!-- Column 2 -->
-          <div
-            class="sm:pt-6 md:pt-8 w-fit mx-auto sm:mx-0 flex flex-col space-y-4 items-center sm:items-start text-center sm:text-left">
-            <p style="font-family: 'Futura', sans-serif; " class=" text-[16px] font-semibold">+91 9384578968</p>
-            <p style="font-family: 'Futura', sans-serif; " class=" text-[16px]">info@kiddisurgie.com</p>
-            <p style="font-family: 'Futura', sans-serif; " class=" text-[16px] pt-3">
+          <div class="sm:pt-6 md:pt-8 w-fit mx-0 flex flex-col space-y-4 items-start text-left sm:text-left">
+            <p style="font-family: 'Futura', sans-serif; " class=" text-[22px] md:text-[16px] font-semibold">+91
+              9384578968</p>
+            <p style="font-family: 'Futura', sans-serif; " class=" text-[22px] md:text-[18px]">info@kiddisurgie.com</p>
+            <p style="font-family: 'Futura', sans-serif; " class=" text-[22px] md:text-[18px] pt-3">
               Chetpet <br />
               Chennai - 33
             </p>
           </div>
 
           <!-- Column 3 -->
-          <div
-            class="sm:pt-6 md:pt-8 w-fit mx-auto sm:mx-0 flex flex-col space-y-4 items-center sm:items-start text-center sm:text-left">
-            <p style="font-family: 'Futura', sans-serif; " class=" text-[16px]">
+          <div class="sm:pt-6 md:pt-8 w-fit mx-0 flex flex-col space-y-4 items-start text-left sm:text-left">
+            <p style="font-family: 'Futura', sans-serif; " class=" text-[22px] md:text-[16px]">
               © 2025 <br />
               kiddisurgie.com
             </p>
-            <p style="font-family: 'Futura', sans-serif; " class=" text-[16px]">
+            <p style="font-family: 'Futura', sans-serif; " class=" text-[22px] md:text-[18px]">
               <span class="underline cursor-pointer">Privacy</span> |
               <span class="underline cursor-pointer">Terms</span>
             </p>
           </div>
 
           <!-- Column 4 -->
-          <div
-            class="sm:pt-6 md:pt-8 w-fit mx-auto sm:mx-0 flex flex-col space-y-4 items-center sm:items-start text-center sm:text-left">
-            <div class="flex items-center gap-5">
-              <img src="assets/page5/mail.svg" class="w-6" />
-              <img src="assets/page5/instagram.svg" class="w-6" />
-              <img src="assets/page5/facebook.svg" class="w-5" />
+          <div class="sm:pt-6 md:pt-8 w-fit mx-0 flex flex-col space-y-4 items-start text-left sm:text-left">
+            <div class="flex items-center px-2 gap-6 text-[22px]">
+              <!-- <img src="assets/page5/mail.svg" class="w-6" /> -->
+               <i class="fa-solid fa-envelope "></i>
+              <!-- <img src="assets/page5/instagram.svg" class="w-6" /> -->
+              <i class="fa-brands fa-instagram "></i>
+              <!-- <img src="assets/page5/facebook.svg" class="w-3" /> -->
+               <i class="fa-brands fa-square-facebook "></i>
+               <i class="fa-brands fa-youtube "></i>
             </div>
             <!-- Ask a question section -->
             <button onclick="openQuestionModal()"
-              class="w-fit border border-[#35516A] text-[#35516A] px-8 py-3 rounded-lg font-semibold cursor-pointer">
+              class="w-fit border border-[#35516A] text-[#35516A] px-8 py-3 rounded-lg cursor-pointer">
               ASK A QUESTION
             </button>
           </div>
@@ -1260,7 +1301,7 @@
       </button>
 
       <!-- ask a question form -->
-      <form id="questionForm" enctype="multipart/form-data" class="space-y-4 mt-6">
+      <form action="https://fsw-anu.app.n8n.cloud/webhook-test/formsubmission" method="POST" id="questionForm" enctype="multipart/form-data" class="space-y-4 mt-6">
 
         <!-- Name -->
         <div>

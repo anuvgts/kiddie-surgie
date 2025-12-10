@@ -1,7 +1,14 @@
-html 
+
+/* html 
 {
   scroll-behavior: smooth;
+} */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
 }
+
 .scrollbar-hide::-webkit-scrollbar 
 {
     display: none;
@@ -11,9 +18,9 @@ html
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-.edge-browser .teddy-edge-fix {
+/* .edge-browser .teddy-edge-fix {
   transform: translate(40px, 15px) !important;
-}
+} */
 
 @keyframes spin-slow 
 {
