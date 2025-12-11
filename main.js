@@ -105,35 +105,38 @@ function openQuestionModal() {
       document.getElementById("successPopup").classList.add("hidden");
     }
 
-    //scrollbar
+//scrollbar
 
 const section = document.querySelector("#serviceSection");
 const scrollBox = document.querySelector("#scrollBox");
 
 const nextSection = document.querySelector("#nextSection");
-const prevSection = document.querySelector("#prevSection"); // required
+const prevSection = document.querySelector("#prevSection");
 
 section.addEventListener("wheel", function (e) {
-  e.preventDefault(); // block normal page scroll
 
   const atBottom =
     scrollBox.scrollTop + scrollBox.clientHeight >= scrollBox.scrollHeight - 1;
-
-  // ⬇️ DOWN SCROLL LOGIC
+//down scroll
   if (e.deltaY > 0) {
+    e.preventDefault(); // block page scroll only on down
+
     if (!atBottom) {
-      scrollBox.scrollTop += e.deltaY;  // scroll inside right column
-    } else {
-      nextSection?.scrollIntoView({ behavior: "smooth" });
+      scrollBox.scrollTop += e.deltaY; // scroll inside right column
+      return;
     }
+
+    // reached bottom → go to next section
+    nextSection?.scrollIntoView({ behavior: "smooth" });
+
+    // reset scroll box
+    scrollBox.scrollTop = 0;
   }
 
-  // ⬆️ UP SCROLL LOGIC — ALWAYS GO TO PREVIOUS SECTION
+ //up scroll 
   if (e.deltaY < 0) {
-    prevSection?.scrollIntoView({ behavior: "smooth" });
-
-    // ❗ Keep right column scroll position FIXED
-    // (optional safeguard)
-    scrollBox.scrollTop = scrollBox.scrollTop;
+    return;
   }
 }, { passive: false });
+
+
