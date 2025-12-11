@@ -8,7 +8,26 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+/* Scrollbar width */
+  .custom-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
 
+  /* Track color */
+  .custom-scroll::-webkit-scrollbar-track {
+    background: #FAB765; /* Tailwind gray-200 */
+  }
+
+  /* Scrollbar thumb color */
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background: #456C89; /* Tailwind blue-500 */
+    border-radius: 10px;
+  }
+
+  /* Hover effect */
+  .custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #456C89; /* Tailwind blue-700 */
+  }
 .scrollbar-hide::-webkit-scrollbar 
 {
     display: none;

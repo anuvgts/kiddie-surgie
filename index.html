@@ -17,6 +17,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   />
 
+
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
@@ -34,7 +35,9 @@
 
     <section id="page1">
       <!-- hero section -->
-      <section class="relative w-full min-h-screen bg-cover bg-center 
+      <section 
+      id="prevSection"
+      class="relative w-full min-h-screen bg-cover bg-center 
             flex items-center justify-center sm:justify-end" style="background-image: url('assets/baby.jpg');">
         <!-- transparent card -->
         <div class="relative z-10 bg-[#456c89]/60 backdrop-blur-sm text-white
@@ -114,17 +117,17 @@
 
             <!-- Teddy -->
             <img src="assets/teddy.png" class="pointer-events-none select-none
-         w-56  md:w-72 lg:w-80 xl:w-96 2xl:w-[28rem]
+              w-56  md:w-72 lg:w-80 xl:w-96 2xl:w-[28rem]
 
-         /* Mobile */
-         static mb-2
+              /* Mobile */
+              static mb-2
 
-         /* Desktop positioning */
-         md:absolute md:top-0 md:left-0
-         md:-translate-x-16 md:-translate-y-14
-         lg:-translate-x-16 lg:-translate-y-18
+              /* Desktop positioning */
+              md:absolute md:top-0 md:left-0
+              md:-translate-x-16 md:-translate-y-14
+              lg:-translate-x-16 lg:-translate-y-18
 
-         teddy-edge-fix" />
+              teddy-edge-fix" />
             <!-- Heading -->
             <div class="w-full flex justify-center mb-6
            mt-0 md:mt-6
@@ -179,7 +182,8 @@
 
     <!-- page2  -->
     <section
-      class="relative w-full min-h-0 py-8 md:py-16 flex items-center justify-center bg-[#fdbf67] bg-repeat bg-center bg-auto"
+      id="serviceSection"
+      class="relative w-full min-h-0 py-8 md:py-16 flex items-center justify-center bg-[#fdbf67] bg-repeat bg-center bg-auto  overflow-hidden"
       style="background-image: url('assets/bg.png'); background-size: 35%">
       <!-- yellow Overlay -->
       <div class="absolute inset-0 backdrop-blur-sm bg-[#fdbf67]/55"></div>
@@ -214,7 +218,7 @@
             </h4>
           </div>
           <!-- right side-->
-          <div class="md:w-[50%] w-full overflow-y-auto scrollbar-hide pr-2 h-[40vh] md:h-[50vh]">
+          <div id="scrollBox" class="md:w-[50%] w-full overflow-y-auto custom-scroll  pr-2 h-[40vh] md:h-[50vh]">
             <!-- CARD 1 -->
             <div class="bg-[#456c89] text-white p-4 sm:p-6 rounded-2xl shadow-lg mb-6">
 
@@ -231,7 +235,7 @@
               </div>
 
               <!-- LIST -->
-              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 text-base sm:text-lg">
+              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 text-base sm:text-lg pl-1 ">
                 <li class="flex items-start gap-3">
                   <img src="assets/tik.svg" class="w-5 sm:w-7 h-auto flex-shrink-0" />
                   <span class="leading-tight">Swelling, sinuses and clefts</span>
@@ -258,7 +262,7 @@
 
 
             <!-- CARD 2 -->
-            <div class="bg-[#456c89] text-white p-4 sm:p-6 rounded-2xl shadow-lg mb-6">
+            <div class="bg-[#456c89] text-white p-4 sm:p-6 rounded-2xl shadow-lg mb-6 ">
 
               <!-- Heading -->
               <div class="flex items-start gap-3 mb-4">
@@ -273,7 +277,7 @@
               </div>
 
               <!-- LIST -->
-              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 text-base sm:text-lg">
+              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 text-base sm:text-lg pl-1">
                 <li class="flex items-start gap-3">
                   <img src="assets/tik.svg" class="w-5 sm:w-7 h-auto flex-shrink-0" />
                   <span class="leading-tight">Laparoscopy - GIT & Urological Conditions</span>
@@ -311,7 +315,7 @@
                 </h3>
               </div>
 
-              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 text-base sm:text-lg">
+              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 text-base sm:text-lg pl-1">
                 <li class="flex items-start gap-3">
                   <img src="assets/tik.svg" class="w-5 sm:w-7 h-auto flex-shrink-0" />
                   <span class="leading-tight">Tracheo-Esophageal fistula & Esophageal Atresia</span>
@@ -361,7 +365,7 @@
                   Paediatric Urology
                 </h3>
               </div>
-              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 text-base sm:text-lg">
+              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 text-base sm:text-lg pl-1">
                 <li class="flex items-start gap-3">
                   <img src="assets/tik.svg" class="w-5 sm:w-7 h-auto flex-shrink-0" />
                   <span class="leading-tight">Hypospadias & Epispadias</span>
@@ -432,7 +436,7 @@
                 </h3>
               </div>
 
-              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 text-base sm:text-lg">
+              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 text-base sm:text-lg pl-1">
                 <li class="flex items-start gap-3">
                   <img src="assets/tik.svg" class="w-5 sm:w-7 h-auto flex-shrink-0" />
                   <span class="leading-tight">Abdominal pain - Appendicitis</span>
@@ -478,7 +482,7 @@
                 </h3>
               </div>
 
-              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 text-base sm:text-lg">
+              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 text-base sm:text-lg pl-1">
                 <li class="flex items-start gap-3">
                   <img src="assets/tik.svg" class="w-5 sm:w-7 h-auto flex-shrink-0" />
                   <span class="leading-tight">Lung malformations (CPAM, sequestration)</span>
@@ -522,7 +526,7 @@
               </div>
 
               <!-- List -->
-              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 sm:space-y-4 text-base md:text-lg">
+              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 sm:space-y-4 text-base md:text-lg pl-1">
                 <li class="flex items-start gap-3">
                   <img src="assets/tik.svg" class="w-5 sm:w-7 h-auto flex-shrink-0" />
                   <span class="leading-tight">Spina Bifida-MMC / Lipo MMC</span>
@@ -550,7 +554,7 @@
               </div>
 
               <!-- List -->
-              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 sm:space-y-4 text-base md:text-lg">
+              <ul style="font-family: 'CanvaSans', sans-serif;" class="space-y-3 sm:space-y-4 text-base md:text-lg pl-1">
 
                 <li class="flex items-start gap-3">
                   <img src="assets/tik.svg" class="w-5 sm:w-7 h-auto flex-shrink-0" />
@@ -577,7 +581,9 @@
     <!-- Page 3  -->
 
     <!-- first section -->
-    <section class="relative w-full min-h-screen bg-contain bg-repeat flex items-center justify-center"
+    <section 
+    id="nextSection"
+    class="relative w-full min-h-screen bg-contain bg-repeat flex items-center justify-center"
       style="background-image: url('assets/page3/bg.png')">
       <!-- Blue overlay -->
       <div class="absolute inset-0 bg-[#476F94]/80"></div>
@@ -842,7 +848,7 @@
           class="absolute left-0 bottom-0 -translate-x-10 sm:-translate-x-14 md:-translate-x-16 w-52 sm:w-64 md:w-80 lg:w-96 pointer-events-none z-20" />
         <!-- Transparent card -->
         <div
-          class="relative mx-auto bg-[#476F94]/60 backdrop-blur-md text-white rounded-[44px] px-4 sm:px-10 md:px-16 py-8 flex flex-col items-center text-center shadow-lg">
+          class="relative mx-auto bg-[#476F94]/60 backdrop-blur-none text-white rounded-[44px] px-4 sm:px-10 md:px-16 py-8 flex flex-col items-center text-center shadow-lg">
           <!-- Heading -->
           <h2 style="font-family: 'Rozha One', serif;"
             class=" text-[34px] sm:text-[48px] md:text-[56px] text-[#FAB765] mb-4">
@@ -1274,7 +1280,7 @@
             </div>
             <!-- Ask a question section -->
             <button onclick="openQuestionModal()"
-              class="w-fit border border-[#35516A] text-[#35516A] px-8 py-3 rounded-lg cursor-pointer">
+              class="w-fit border border-[#35516A] text-[#35516A] px-8 py-3 rounded-lg font-semibold cursor-pointer">
               ASK A QUESTION
             </button>
           </div>

@@ -104,3 +104,36 @@ function openQuestionModal() {
     function closePopup() {
       document.getElementById("successPopup").classList.add("hidden");
     }
+
+    //scrollbar
+
+const section = document.querySelector("#serviceSection");
+const scrollBox = document.querySelector("#scrollBox");
+
+const nextSection = document.querySelector("#nextSection");
+const prevSection = document.querySelector("#prevSection"); // required
+
+section.addEventListener("wheel", function (e) {
+  e.preventDefault(); // block normal page scroll
+
+  const atBottom =
+    scrollBox.scrollTop + scrollBox.clientHeight >= scrollBox.scrollHeight - 1;
+
+  // ⬇️ DOWN SCROLL LOGIC
+  if (e.deltaY > 0) {
+    if (!atBottom) {
+      scrollBox.scrollTop += e.deltaY;  // scroll inside right column
+    } else {
+      nextSection?.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  // ⬆️ UP SCROLL LOGIC — ALWAYS GO TO PREVIOUS SECTION
+  if (e.deltaY < 0) {
+    prevSection?.scrollIntoView({ behavior: "smooth" });
+
+    // ❗ Keep right column scroll position FIXED
+    // (optional safeguard)
+    scrollBox.scrollTop = scrollBox.scrollTop;
+  }
+}, { passive: false });
