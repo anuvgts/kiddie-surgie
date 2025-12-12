@@ -1,58 +1,65 @@
 
-/* html 
-{
-  scroll-behavior: smooth;
-} */
 html,
 body {
   width: 100%;
   overflow-x: hidden;
 }
+
 /* Scrollbar width */
-  .custom-scroll::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  /* Track color */
-  .custom-scroll::-webkit-scrollbar-track {
-    background: #FAB765; /* Tailwind gray-200 */
-  }
-
-  /* Scrollbar thumb color */
-  .custom-scroll::-webkit-scrollbar-thumb {
-    background: #456C89; /* Tailwind blue-500 */
-    border-radius: 10px;
-  }
-
-  /* Hover effect */
-  .custom-scroll::-webkit-scrollbar-thumb:hover {
-    background: #456C89; /* Tailwind blue-700 */
-  }
-.scrollbar-hide::-webkit-scrollbar 
-{
-    display: none;
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
 }
-.scrollbar-hide 
-{
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+
+/* Track color */
+.custom-scroll::-webkit-scrollbar-track {
+  background: #FAB765;
+  /* Tailwind gray-200 */
 }
+
+/* Scrollbar thumb color */
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #456C89;
+  /* Tailwind blue-500 */
+  border-radius: 10px;
+}
+
+/* Hover effect */
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #456C89;
+  /* Tailwind blue-700 */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .edge-browser .teddy-edge-fix {
   transform: translate(40px, 15px) !important;
 }
 
-@keyframes spin-slow 
-{
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
+
 @font-face {
   font-family: "CanvaSans";
   src: url("fonts/canva-sans-regular.otf") format("opentype");
 }
+
 @font-face {
   font-family: "Futura";
   src: url("fonts/FuturaCyrillicMedium.ttf") format("truetype");
 }
-
-

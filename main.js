@@ -32,29 +32,29 @@ Promise.all([
 
 //ask a question modaal section
 function openQuestionModal() {
-    document.getElementById("modalBackdrop").classList.remove("hidden");
-  }
-  function closeQuestionModal() {
-    document.getElementById("modalBackdrop").classList.add("hidden");
-  }
+  document.getElementById("modalBackdrop").classList.remove("hidden");
+}
+function closeQuestionModal() {
+  document.getElementById("modalBackdrop").classList.add("hidden");
+}
 
 //ask a question section
-  document.getElementById("questionForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+document.getElementById("questionForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    const form = e.target;
-    const formData = new FormData(form);
+  const form = e.target;
+  const formData = new FormData(form);
 
-    document.getElementById("successPopup").classList.remove("hidden");
-    form.reset();
-    fetch(
-      "https://fsw-anu.app.n8n.cloud/webhook-test/0147c1e4-467c-4e0a-80a4-907a24f0d725",
-      {
-        method: "POST",
-        body: formData,
-      }
-    ).catch((err) => console.log("Webhook error:", err));
-    closeQuestionModal();
+  document.getElementById("successPopup").classList.remove("hidden");
+  form.reset();
+  fetch(
+    "https://fsw-anu.app.n8n.cloud/webhook-test/0147c1e4-467c-4e0a-80a4-907a24f0d725",
+    {
+      method: "POST",
+      body: formData,
+    }
+  ).catch((err) => console.log("Webhook error:", err));
+  closeQuestionModal();
 });
 
 //file upload validation
@@ -83,27 +83,27 @@ function openQuestionModal() {
 //   }
 
 //appointment section
-    document.getElementById("contactForm").addEventListener("submit", function (e) {
-    e.preventDefault();  
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    const form = e.target;
-    const formData = new FormData(form);
+  const form = e.target;
+  const formData = new FormData(form);
 
-    fetch(
-      "https://fsw-anu.app.n8n.cloud/webhook-test/01caaa65-2cca-4a97-b430-5e94ddc7068e",
-      {
-        method: "POST",
-        body: formData,
-      }
-    ).catch(err => console.error("Webhook Error:", err));
-
-    document.getElementById("successPopup").classList.remove("hidden");
-    form.reset();
-    });
-
-    function closePopup() {
-      document.getElementById("successPopup").classList.add("hidden");
+  fetch(
+    "https://n8n.techdemo.in/webhook-test/11c670ec-f223-4420-8f10-6276c533e76a",
+    {
+      method: "POST",
+      body: formData,
     }
+  ).catch(err => console.error("Webhook Error:", err));
+
+  document.getElementById("successPopup").classList.remove("hidden");
+  form.reset();
+});
+
+function closePopup() {
+  document.getElementById("successPopup").classList.add("hidden");
+}
 
 //scrollbar
 
@@ -117,7 +117,7 @@ section.addEventListener("wheel", function (e) {
 
   const atBottom =
     scrollBox.scrollTop + scrollBox.clientHeight >= scrollBox.scrollHeight - 1;
-//down scroll
+  //down scroll
   if (e.deltaY > 0) {
     e.preventDefault(); // block page scroll only on down
 
@@ -133,10 +133,22 @@ section.addEventListener("wheel", function (e) {
     scrollBox.scrollTop = 0;
   }
 
- //up scroll 
+  //up scroll 
   if (e.deltaY < 0) {
     return;
   }
 }, { passive: false });
 
+
+//FAQ section
+function toggleFaq(button) {
+  const answer = button.nextElementSibling;
+  const arrow = button.querySelector("img");
+
+  // Toggle answer visibility
+  answer.classList.toggle("hidden");
+
+  // Rotate arrow
+  arrow.classList.toggle("rotate-180");
+}
 
