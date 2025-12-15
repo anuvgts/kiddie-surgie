@@ -48,7 +48,7 @@ document.getElementById("questionForm").addEventListener("submit", function (e) 
   document.getElementById("successPopup").classList.remove("hidden");
   form.reset();
   fetch(
-    "https://fsw-anu.app.n8n.cloud/webhook-test/0147c1e4-467c-4e0a-80a4-907a24f0d725",
+    "https://n8n.techdemo.in/webhook-test/ask-a-question",
     {
       method: "POST",
       body: formData,
@@ -90,7 +90,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   const formData = new FormData(form);
 
   fetch(
-    "https://n8n.techdemo.in/webhook-test/11c670ec-f223-4420-8f10-6276c533e76a",
+    "https://n8n.techdemo.in/webhook-test/book-appointment",
     {
       method: "POST",
       body: formData,
