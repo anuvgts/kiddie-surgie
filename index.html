@@ -649,7 +649,7 @@
             rounded-3xl p-6 pb-2 flex flex-col text-white shadow-lg 
             h-[360px] mx-auto" style="background-image: url('assets/page3/card-bg.jpg'); background-size: cover;">
 
-            <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden mb-6 mx-auto">
+            <div class="w-45 h-45 sm:w-40 sm:h-40 rounded-full overflow-hidden mb-6 mx-auto">
               <img src="assets/page3/Dr Balamourougane P.png" class="w-full h-full object-cover object-top" />
             </div>
 
@@ -658,19 +658,18 @@
               Dr Balamourougane P
             </h4>
 
-            <button class="bg-[#FAB765] text-white font-bold px-6 py-3 w-full rounded-full mt-auto">
+            <button class="bg-[#FAB765] text-white font-bold px-6 py-3 w-full rounded-full mt-auto ">
               KNOW MORE
             </button>
 
           </div>
 
           <!-- Card 2 -->
-          <!-- Card 2 -->
           <div class="w-[250px] inline-block sm:w-full sm:max-w-[250px]
             rounded-3xl p-6 pb-2 flex flex-col text-white shadow-lg 
             h-[360px] mx-auto" style="background-image: url('assets/page3/card-bg.jpg'); background-size: cover;">
 
-            <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden mb-6 mx-auto">
+            <div class="w-45 h-45 sm:w-40 sm:h-40 rounded-full overflow-hidden mb-6 mx-auto">
               <img src="assets/page3/person2.png" class="w-full h-full object-cover object-top" />
             </div>
 
@@ -690,11 +689,11 @@
             rounded-3xl p-6 pb-2 flex flex-col text-white shadow-lg 
             h-[360px] mx-auto" style="background-image: url('assets/page3/card-bg.jpg'); background-size: cover;">
 
-            <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden mb-6 mx-auto">
+            <div class="w-45 h-45 sm:w-40 sm:h-40 rounded-full overflow-hidden mb-6 mx-auto">
               <img src="assets/page3/person3.png" class="w-full h-full object-cover object-top" />
             </div>
 
-            <h4 class="text-[21px] md:text-[20px] mb-4 text-center leading-snug whitespace-nowrap"
+            <h4 class="text-[21px] md:text-[20px] mb-3 text-center leading-snug whitespace-nowrap"
               style="font-family: 'Rozha One', serif;">
               Dr Vankam Aseesh &nbsp;<br> Varma 
             </h4>
@@ -1253,6 +1252,8 @@
           <!-- Parent Name -->
           <div>
             <input type="text" name="parentName" required
+            pattern="^[A-Za-z\s]+$"
+            title="Name must contain only letters"
               class="bg-[#60798D] text-white px-2 py-3 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
               placeholder="Parent’s Name*" />
           </div>
@@ -1261,6 +1262,9 @@
 
           <div>
             <input type="tel" name="phoneNumber" required
+              pattern="^[6-9]\d{9}$"
+              title="Enter a valid 10-digit Indian mobile number"
+              maxlength="10"
               class="bg-[#60798D] backdrop-blur-md text-white px-2 py-3 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
               placeholder="Phone Number*" />
           </div>
@@ -1268,6 +1272,8 @@
           <!-- Email -->
           <div>
             <input type="email" name="email" required
+               pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+              title="Enter a valid email address"
               class="bg-[#60798D] backdrop-blur-md text-white px-2 py-3 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
               placeholder="Email*" />
           </div>
@@ -1275,6 +1281,8 @@
           <!-- Child Age -->
           <div>
             <input type="text" name="childAge" required
+              pattern="^[A-Za-z0-9]+$"
+              title="Enter valid age"
               class="bg-[#60798D] backdrop-blur-md text-white px-2 py-3 block text-lg w-full placeholder-white outline-none focus:outline-none focus:ring-0"
               placeholder="Child’s Age*" />
           </div>
@@ -1439,14 +1447,17 @@
         <!-- Name -->
         <div>
           <label class="font-medium text-sm">Name</label>
-          <input name="name" type="text" required class="w-full border rounded p-2 text-sm"
+          <input name="name" type="text" required pattern="^[A-Za-z\s]+$"
+            title="Name must contain only letters" class="w-full border rounded p-2 text-sm"
             placeholder="Enter your name" />
         </div>
 
         <!-- Mobile / WhatsApp -->
         <div>
           <label class="font-medium text-sm">Mobile Number / WhatsApp Number</label>
-          <input name="mobileNumber" type="text" required class="w-full border rounded p-2 text-sm"
+          <input name="mobileNumber" type="text" required  pattern="^[6-9]\d{9}$"
+              title="Enter a valid 10-digit Indian mobile number"
+              maxlength="10" class="w-full border rounded p-2 text-sm"
             placeholder="Enter mobile number" />
         </div>
 

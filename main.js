@@ -1,7 +1,5 @@
-//  if (navigator.userAgent.includes("Edg/")) {
-//     document.body.classList.add("edge-browser");
-//   }
-// load navbar
+
+// --------------------load navbar---------------------------//
 const loadHTML = (selector, file) =>
   fetch(file)
     .then(res => res.text())
@@ -30,7 +28,7 @@ Promise.all([
   });
 });
 
-//ask a question modaal section
+//----------------------ask a question modaal section--------------------------//
 function openQuestionModal() {
   document.getElementById("modalBackdrop").classList.remove("hidden");
 }
@@ -82,7 +80,7 @@ document.getElementById("questionForm").addEventListener("submit", function (e) 
 //     }
 //   }
 
-//appointment section
+//----------------appointment section---------------------//
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -105,7 +103,9 @@ function closePopup() {
   document.getElementById("successPopup").classList.add("hidden");
 }
 
-//scrollbar
+
+
+//----------------scrollbar---------------------------//
 
 const section = document.querySelector("#serviceSection");
 const scrollBox = document.querySelector("#scrollBox");
@@ -140,7 +140,7 @@ section.addEventListener("wheel", function (e) {
 }, { passive: false });
 
 
-//FAQ section
+//--------------FAQ section arrow --------------------//
 function toggleFaq(button) {
   const answer = button.nextElementSibling;
   const arrow = button.querySelector("img");
