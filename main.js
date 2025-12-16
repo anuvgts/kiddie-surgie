@@ -105,50 +105,45 @@ function closePopup() {
 
 
 
-//----------------scrollbar---------------------------//
+//----------------slider ---------------------------//
 
-const section = document.querySelector("#serviceSection");
-const scrollBox = document.querySelector("#scrollBox");
+const track = document.getElementById("carouselTrack");
+const slides = track.children;
+let index = 0;
 
-const nextSection = document.querySelector("#nextSection");
-const prevSection = document.querySelector("#prevSection");
+function moveSlide() {
+  index++;
 
-section.addEventListener("wheel", function (e) {
+  track.style.transition = "transform 0.7s ease-in-out";
+  track.style.transform = `translateX(-${index * slides[0].offsetWidth}px)`;
 
-  const atBottom =
-    scrollBox.scrollTop + scrollBox.clientHeight >= scrollBox.scrollHeight - 1;
-  //down scroll
-  if (e.deltaY > 0) {
-    e.preventDefault(); // block page scroll only on down
-
-    if (!atBottom) {
-      scrollBox.scrollTop += e.deltaY; // scroll inside right column
-      return;
-    }
-
-    // reached bottom → go to next section
-    nextSection?.scrollIntoView({ behavior: "smooth" });
-
-    // reset scroll box
-    scrollBox.scrollTop = 0;
+  // When last slide is reached
+  if (index === slides.length) {
+    setTimeout(() => {
+      track.style.transition = "none"; // remove animation
+      track.style.transform = "translateX(0px)";
+      index = 0;
+    }, 700); // same as transition duration
   }
+}
 
-  //up scroll 
-  if (e.deltaY < 0) {
-    return;
-  }
-}, { passive: false });
+setInterval(moveSlide, 3500);
 
 
 //--------------FAQ section arrow --------------------//
+
 function toggleFaq(button) {
-  const answer = button.nextElementSibling;
-  const arrow = button.querySelector("img");
+    const faqItem = button.closest(".faq-item");
+    const answer = faqItem.querySelector(".faq-answer");
+    const arrow = button.querySelector(".faq-arrow");
 
-  // Toggle answer visibility
-  answer.classList.toggle("hidden");
+    const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
 
-  // Rotate arrow
-  arrow.classList.toggle("rotate-180");
-}
-
+    if (isOpen) {
+      answer.style.maxHeight = "0px";
+      arrow.classList.remove("rotate-180");
+    } else {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+      arrow.classList.add("rotate-180");
+    }
+  }

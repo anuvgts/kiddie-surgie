@@ -62,81 +62,12 @@
             </h1>
         </div>
 
-        <!-- Custom Controls -->
-        <div class="absolute bottom-4 left-0 w-full px-4 flex items-center justify-between 
-           pointer-events-auto md:pointer-events-none
-           opacity-100  md:opacity-0 md:group-hover:opacity-100 
-           transition-opacity duration-300 z-50">
-
-            <!-- Play Button -->
-            <button id="playBtn" class="text-white text-2xl mr-4">
-                <i class="fa-solid fa-play"></i>
-            </button>
-
-            <!-- Timeline -->
-            <input id="videoSeek" type="range" min="0" max="100" value="0"
-                class="w-full h-1 bg-white/50 rounded-md cursor-pointer accent-white" />
-
-            <!-- Mute Button -->
-            <button id="muteBtn" class="text-white text-2xl ml-4">
-                <i class="fa-solid fa-volume-xmark"></i>
-            </button>
-
-        </div>
+      
 
     </section>
 
 
-    <!-- script for video play -->
-    <script>
-        const video = document.getElementById("customVideo");
-        const playBtn = document.getElementById("playBtn");
-        const muteBtn = document.getElementById("muteBtn");
-        const seek = document.getElementById("videoSeek");
-
-        // Function to update play/pause icon correctly
-        function updatePlayIcon() {
-            playBtn.innerHTML = video.paused
-                ? '<i class="fa-solid fa-play"></i>'
-                : '<i class="fa-solid fa-pause"></i>';
-        }
-
-        // When clicking play button
-        playBtn.addEventListener("click", () => {
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
-            updatePlayIcon();
-        });
-
-        // Update timeline while video plays
-        video.addEventListener("timeupdate", () => {
-            seek.value = (video.currentTime / video.duration) * 100;
-        });
-
-        // Seek video position
-        seek.addEventListener("input", () => {
-            video.currentTime = (seek.value / 100) * video.duration;
-        });
-
-        // Auto-update icon when video starts or stops
-        video.addEventListener("play", updatePlayIcon);
-        video.addEventListener("pause", updatePlayIcon);
-
-        // Mute / Unmute
-        muteBtn.addEventListener("click", () => {
-            video.muted = !video.muted;
-            muteBtn.innerHTML = video.muted
-                ? '<i class="fa-solid fa-volume-xmark"></i>'
-                : '<i class="fa-solid fa-volume-high"></i>';
-        });
-
-        // Initial icon state after video loads
-        video.addEventListener("loadeddata", updatePlayIcon);
-    </script>
-
+   
 
     <!-- SECTION 2 — 2 COLUMN CONTENT -->
     <section class="relative w-full min-h-screen bg-top bg-contain bg-repeat px-6 md:px-24 py-12"
@@ -148,23 +79,35 @@
         <!-- INNER SECTION -->
         <div style="background-image: url('assets/page3/bg.png'); background-blend-mode: overlay;"
             class="bg-[#ECE3D0] bg-contain bg-repeat bg-center px-4 md:px-8 py-8 relative z-10">
+            <h2 style="font-family:'Rozha One', serif;" class="text-[28px] md:text-[32px] text-[#4682B4] mb-6">
+                        Get in Touch
+                    </h2>
 
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
+
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 mb-8">
 
                 <!-- LEFT SIDE — MAP (appears FIRST on mobile) -->
                 <div
-                    class="border-14 border-[#79A3C5] w-full h-[300px] md:h-[420px] rounded-2xl overflow-hidden shadow-lg order-1">
-                    <iframe class="w-full h-full" frameborder="0" style="border:0" allowfullscreen
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.012990234032!2d80.238037!3d13.089480!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52661797c1e6cd%3A0x9a33f61c743a5bb!2sDr%20Mehta%E2%80%99s%20Hospitals%2C%20Chetpet!5e0!3m2!1sen!2sin!4v1709978999999">
-                    </iframe>
-                </div>
+  class="border-[14px] border-[#79A3C5]
+         w-full
+         h-[240px] md:h-[320px]
+         rounded-2xl
+         overflow-hidden
+         shadow-lg
+         order-2 md:order-1"
+>
+  <iframe
+    class="w-full h-full"
+    frameborder="0"
+    style="border:0"
+    allowfullscreen
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.012990234032!2d80.238037!3d13.089480!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52661797c1e6cd%3A0x9a33f61c743a5bb!2sDr%20Mehta%E2%80%99s%20Hospitals%2C%20Chetpet!5e0!3m2!1sen!2sin!4v1709978999999">
+  </iframe>
+</div>
+
 
                 <!-- RIGHT SIDE — ADDRESS (appears SECOND on mobile) -->
-                <div class="order-2">
-
-                    <h2 style="font-family:'Rozha One', serif;" class="text-[28px] md:text-[32px] text-[#4682B4] mb-6">
-                        Get in Touch
-                    </h2>
+                <div class="order-1 md:order-2">
 
                     <!-- Address Block Container -->
                     <div class="space-y-6">
@@ -177,6 +120,41 @@
                             Chetpet, Chennai – 600031
                         </p>
 
+                       
+
+                    </div>
+                </div>
+
+            </div>
+ <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 mb-8">
+
+                <!-- LEFT SIDE — MAP (appears FIRST on mobile) -->
+                <div
+  class="border-[14px] border-[#79A3C5]
+         w-full
+         h-[240px] md:h-[320px]
+         rounded-2xl
+         overflow-hidden
+         shadow-lg
+         order-2 md:order-1"
+>
+  <iframe
+    class="w-full h-full"
+    frameborder="0"
+    style="border:0"
+    allowfullscreen
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.012990234032!2d80.238037!3d13.089480!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52661797c1e6cd%3A0x9a33f61c743a5bb!2sDr%20Mehta%E2%80%99s%20Hospitals%2C%20Chetpet!5e0!3m2!1sen!2sin!4v1709978999999">
+  </iframe>
+</div>
+
+                <!-- RIGHT SIDE — ADDRESS (appears SECOND on mobile) -->
+                <div class="order-1 md:order-2">
+
+                    <!-- Address Block Container -->
+                    <div class="space-y-6">
+
+                        
+
                         <!-- Address 2 -->
                         <p style="font-family:'Futura', sans-serif;"
                             class="text-[18px] md:text-[20px] text-gray-500 leading-relaxed">
@@ -184,6 +162,42 @@
                             No. 50, Poonamallee High Road,<br />
                             Velappanchavadi, Chennai – 600077
                         </p>
+
+                       
+
+                    </div>
+                </div>
+
+            </div>
+ <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 mb-8">
+
+                <!-- LEFT SIDE — MAP (appears FIRST on mobile) -->
+                <div
+  class="border-[14px] border-[#79A3C5]
+         w-full
+         h-[240px] md:h-[320px]
+         rounded-2xl
+         overflow-hidden
+         shadow-lg
+         order-2 md:order-1"
+>
+  <iframe
+    class="w-full h-full"
+    frameborder="0"
+    style="border:0"
+    allowfullscreen
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.012990234032!2d80.238037!3d13.089480!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52661797c1e6cd%3A0x9a33f61c743a5bb!2sDr%20Mehta%E2%80%99s%20Hospitals%2C%20Chetpet!5e0!3m2!1sen!2sin!4v1709978999999">
+  </iframe>
+</div>
+
+
+                <!-- RIGHT SIDE — ADDRESS (appears SECOND on mobile) -->
+                <div class="order-1 md:order-2">
+
+                    <!-- Address Block Container -->
+                    <div class="space-y-6">
+
+                       
 
                         <!-- Address 3 -->
                         <p style="font-family:'Futura', sans-serif;"
