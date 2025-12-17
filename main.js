@@ -133,17 +133,41 @@ setInterval(moveSlide, 3500);
 //--------------FAQ section arrow --------------------//
 
 function toggleFaq(button) {
-    const faqItem = button.closest(".faq-item");
-    const answer = faqItem.querySelector(".faq-answer");
-    const arrow = button.querySelector(".faq-arrow");
+  const faqItem = button.closest(".faq-item");
+  const answer = faqItem.querySelector(".faq-answer");
+  const arrow = button.querySelector(".faq-arrow");
 
-    const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
+  const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
 
-    if (isOpen) {
-      answer.style.maxHeight = "0px";
-      arrow.classList.remove("rotate-180");
-    } else {
-      answer.style.maxHeight = answer.scrollHeight + "px";
-      arrow.classList.add("rotate-180");
-    }
+  if (isOpen) {
+    answer.style.maxHeight = "0px";
+    arrow.classList.remove("rotate-180");
+  } else {
+    answer.style.maxHeight = answer.scrollHeight + "px";
+    arrow.classList.add("rotate-180");
   }
+}
+
+
+//slider
+new Swiper(".swiper", {
+  slidesPerView: 1,
+  loop: true,
+
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: false,
+  },
+
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+
+
+
+  pauseOnMouseEnter: true,
+  grabCursor: true,
+  speed: 800,
+});

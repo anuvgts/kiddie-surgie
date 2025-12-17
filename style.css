@@ -63,3 +63,28 @@ body {
   font-family: "Futura";
   src: url("fonts/FuturaCyrillicMedium.ttf") format("truetype");
 }
+
+/* line animation */
+@keyframes hr-reveal {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  20% {
+    width: 100%;
+    opacity: 1;
+  }
+  80% {
+    width: 100%;
+    opacity: 1; /* pause here */
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+.animate-hr {
+  animation: hr-reveal 4s ease-in-out infinite;
+}
+

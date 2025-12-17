@@ -14,6 +14,9 @@
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
@@ -39,14 +42,8 @@
         <source src="assets/page1/kiddiesurgie hero part mp4.mp4" type="video/mp4">
       </video>
       <!-- transparent card -->
-      <!-- <div class="relative z-10 bg-[#456c89]/60 backdrop-blur-sm text-white
-              w-[90%] sm:w-[70%] md:w-[50%]
-              p-8 sm:p-10 md:p-14
-              mt-6 mb-6
-              rounded-tl-3xl rounded-bl-3xl
-              mx-auto sm:mx-0"> -->
-              <div
-  class="relative z-10
+
+      <!-- <div class="relative z-10
          bg-[#456c89]/60 backdrop-blur-sm text-white
 
          /* MOBILE FULL SCREEN */
@@ -61,8 +58,26 @@
          sm:p-10 md:p-14
          sm:mt-6 sm:mb-6
          sm:rounded-tl-3xl sm:rounded-bl-3xl
-         sm:mx-0 mx-auto"
->
+         sm:mx-0 mx-auto"> -->
+      <div class="relative z-10
+     bg-[#456c89]/60 backdrop-blur-sm text-white
+
+     /* MOBILE: FULL SCREEN, NO EMPTY SPACE */
+     w-full min-h-screen
+     flex flex-col justify-start
+     px-4 py-6
+     rounded-none
+
+     /* DESKTOP (UNCHANGED) */
+     sm:w-[70%] md:w-[50%]
+     sm:min-h-0
+     sm:justify-center
+     sm:px-10 md:px-14
+     sm:py-10
+     sm:mt-6 sm:mb-6
+     sm:rounded-tl-3xl sm:rounded-bl-3xl
+     sm:mx-0 mx-auto">
+
 
         <!-- Top Badge -->
         <div style="font-family: 'CanvaSans', sans-serif;"
@@ -76,14 +91,21 @@
           </span>
         </div>
         <!-- Heading -->
-        <h1 style="font-family: 'Rozha One', serif;"
+        <!-- <h1 style="font-family: 'Rozha One', serif;"
           class="text-[30px] sm:text-[48px] md:text-[56px] lg:text-[60px]  leading-tight mb-6">
           Gentle, Expert <br>
           Pediatric Surgical <br>
           Care for Children
+        </h1> -->
+        <h1 style="font-family: 'Rozha One', serif;" class="text-[68px] sm:text-[48px] md:text-[56px] lg:text-[60px]
+         leading-tight mb-5">
+          Gentle, Expert <br>
+          Pediatric Surgical <br>
+          Care for Children
         </h1>
+
         <!-- Buttons -->
-        <div class="flex flex-col lg:flex-row gap-4 mb-6">
+        <!-- <div class="flex flex-col lg:flex-row gap-4 mb-6">
           <a style="font-family: 'CanvaSans', sans-serif;"
             class="bg-[#FC8F3A] text-[16px] text-white font-semibold px-6 py-3 rounded-full text-center whitespace-nowrap">
             BOOK CONSULTATION <i class="fa-solid fa-arrow-right"></i>
@@ -92,7 +114,19 @@
             class="bg-white text-[16px] text-[#476F94] font-semibold px-6 py-3 rounded-full text-center whitespace-nowrap">
             MEET YOUR TEAM
           </a>
+        </div> -->
+        <div class="flex flex-col gap-4 mb-6">
+          <a style="font-family: 'CanvaSans', sans-serif;" class="bg-[#FC8F3A] text-[16px] text-white font-semibold
+           px-6 py-4 rounded-full text-center w-full">
+            BOOK CONSULTATION <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <a style="font-family: 'CanvaSans', sans-serif;" class="bg-white text-[16px] text-[#476F94] font-semibold
+           px-6 py-4 rounded-full text-center w-full">
+            MEET YOUR TEAM
+          </a>
         </div>
+
         <!-- Feature List -->
         <div class="hidden md:flex flex-col sm:flex-row gap-6">
           <div class="flex gap-3 items-start">
@@ -114,15 +148,15 @@
     </section>
     <!-- about section -->
 
-    <section class="relative py-12 flex justify-center px-6 md:px-4 
+    <section class="relative py-16 flex justify-center px-6 md:px-20 lg:px-32 xl:px-40
          bg-[#FC8F3A] bg-repeat bg-center bg-auto overflow-hidden"
-      style="background-image: url('assets/bg.png'); background-size: 35%">
+      style="background-image: url('assets/bg.png'); background-size: 55%">
 
       <!-- Yellow Overlay (ONLY for this section) -->
-      <div class="absolute inset-0 bg-[#FC8F3A]/55 backdrop-blur-sm z-0"></div>
+      <div class="absolute inset-0 bg-[#FC8F3A]/10 backdrop-blur-sm z-0"></div>
 
       <div
-        class="relative z-10 w-full max-w-5xl bg-white p-4 md:p-10 rounded-3xl shadow-2xl relative teddy-title-wrap   teddy-edge-fix">
+        class="relative z-10 w-full max-w-5xl bg-white p-2 md:p-10 rounded-3xl shadow-2xl relative teddy-title-wrap   teddy-edge-fix">
 
         <div class="relative flex flex-col items-center md:block">
 
@@ -142,7 +176,7 @@
            mt-0 md:mt-6
            pl-0 md:pl-20 lg:pl-24">
             <h2 style="font-family: 'Rozha One', serif;" class="text-[#476F94]
-             text-[33px] sm:text-[48px] md:text-[60px]
+             text-[38px] sm:text-[48px] md:text-[60px]
              text-center leading-tight">
               About Kiddie Surgie
             </h2>
@@ -159,7 +193,7 @@
 
         <!-- Paragraph 1 -->
         <p style="font-family: 'Futura', sans-serif;"
-          class="text-[#476F94]  text-[22px] md:text-[18px] px-2 sm:px-10 text-center md:text-center ">
+          class="text-[#476F94]  text-[20px] md:text-[18px] px-2 sm:px-10 text-center md:text-center ">
           The Kiddie Surgie team, led by Dr Balamourougane P, Dr Vinayak
           S. Rengan, and Dr Aseesh Varma, provides
           expert paediatric and neonatal surgery in Chennai. We specialise in treating paediatric surgical problems
@@ -169,7 +203,7 @@
 
         <!-- Paragraph 2 -->
         <p style="font-family: 'Futura', sans-serif;"
-          class="mt-6 text-[#476F94]  text-[22px] md:text-[18px] px-2 sm:px-10 text-center">
+          class="mt-6 text-[#476F94]  text-[20px] md:text-[18px] px-2 sm:px-10 text-center">
           Our team offers expertise in Minimally invasive Paediatric surgery including Laparoscopy and Thoracoscopy,
           offering safer procedures with smaller scars, less pain, and faster recovery resulting in shorter hospital
           stay. From life-saving neonatal operations to routine day-care surgeries, our approach combines advanced
@@ -179,7 +213,7 @@
 
         <!-- Paragraph 3 -->
         <p style="font-family: 'Futura', sans-serif;"
-          class="mt-6 text-[#476F94]  text-[22px] md:text-[18px] px-2 sm:px-10 text-center">
+          class="mt-6 text-[#476F94]  text-[20px] md:text-[18px] px-2 sm:px-10 text-center">
           At Kiddie Surgie, every child receives safe, specialised, and compassionate care, guided by years of
           expertise and a commitment to excellence in paediatric surgery in Chennai.
         </p>
@@ -193,7 +227,7 @@
     <section id="serviceSection" class="relative w-full py-8 md:py-16 flex items-center justify-center
          bg-[#476F94] bg-repeat bg-center bg-auto overflow-x-hidden">
 
-      <div class="text-white p-1 sm:p-2 px-4 md:px-16 lg:px-32 max-w-7xl mx-auto w-full">
+      <div class="text-white p-1 sm:p-2 px-4 md:px-24 lg:px-40 xl:px-42 max-w-7xl mx-auto w-full">
 
         <!-- two section -->
         <div class="flex flex-col gap-10 items-start">
@@ -684,7 +718,7 @@
 
       <div class="absolute inset-0 bg-white/90"></div>
 
-      <div class="relative z-10 w-full max-w-5xl mx-auto py-4">
+      <div class="relative z-10 w-full max-w-5xl mx-auto py-8 md:py-8">
         <div class="flex flex-col md:flex-row items-center md:items-stretch justify-between gap-y-10 md:gap-x-16">
 
           <!-- left content -->
@@ -714,53 +748,41 @@
               bring comfort, confidence and healing to the children entrusted to us.
             </p>
           </div> -->
-          <div
-  class="flex-1 flex flex-col items-center justify-center px-5 md:px-2 "
->
-  <!-- h1 -->
-  <h1
-    style="font-family: 'Rozha One', serif;"
-    class="text-[#476F94] text-[30px] md:text-[34px] lg:text-[40px]
-           mb-4 leading-tight whitespace-nowrap text-center">
-    Message by Founder & <br> Chief Surgeon
-  </h1>
+          <div class="flex-1 flex flex-col items-center md:items-start justify-center md:justify-start px-5 md:px-2 ">
+            <!-- h1 -->
+            <h1 style="font-family: 'Rozha One', serif;" class="text-[#476F94] text-[30px] md:text-[34px] lg:text-[40px]
+           mb-4 leading-tight whitespace-nowrap text-center md:text-left">
+              Message by Founder & <br> Chief Surgeon
+            </h1>
 
-  <!-- h3 -->
-  <h3
-    style="font-family: 'CanvaSans', sans-serif;"
-    class="text-[#FC8F3A] font-bold text-[22px] md:text-[26px]
+            <!-- h3 -->
+            <h3 style="font-family: 'CanvaSans', sans-serif;" class="text-[#FC8F3A] font-bold text-[22px] md:text-[26px]
            mb-4 leading-tight text-center">
-    Dr Balamourougane
-  </h3>
+              Dr Balamourougane
+            </h3>
 
-  <!-- MOBILE IMAGE (appears after h3) -->
-  <div class="w-full flex justify-center my-4 md:hidden mb-6">
-    <img
-      src="assets/page3/person1.png"
-      class="shadow-xl w-[75%]
+            <!-- MOBILE IMAGE (appears after h3) -->
+            <div class="w-full flex justify-center my-4 md:hidden mb-6">
+              <img src="assets/page3/person1.png" class="shadow-xl w-[75%]
              max-w-xs object-cover
-             rounded-[52px] border-[6px] border-[#FC8F3A]"
-      alt="Dr"
-    />
-  </div>
+             rounded-[52px] border-[6px] border-[#FC8F3A]" alt="Dr" />
+            </div>
 
-  <!-- paragraph -->
-  <p
-    style="font-family: 'Futura', sans-serif;"
-    class="text-[#476F94] text-[22px] md:text-[20px]
+            <!-- paragraph -->
+            <p style="font-family: 'Futura', sans-serif;" class="text-[#476F94] text-[20px] md:text-[20px]
            max-w-xl mx-auto md:mx-0 leading-relaxed text-left ">
-    At Kiddie Surgie, I have always believed that every child who comes
-to us deserves not only expert surgical care but also warmth,
-reassurance and the feeling of being truly looked after. Paediatric
-surgery is deeply personal to me. Every anxious parent I meet and
-every little hand I hold reminds me why this work matters. Our aim is
-to guide families with clarity, to treat every child as our own and to
-ensure that even the most complex surgery is handled with kindness
-and precision. At our paediatric surgery units across Apollo
-Children’s Hospital and Dr Mehta’s Hospitals, we strive every day to
-bring comfort, confidence and healing to the children entrusted to us.
-  </p>
-</div>
+              At Kiddie Surgie, I have always believed that every child who comes
+              to us deserves not only expert surgical care but also warmth,
+              reassurance and the feeling of being truly looked after. Paediatric
+              surgery is deeply personal to me. Every anxious parent I meet and
+              every little hand I hold reminds me why this work matters. Our aim is
+              to guide families with clarity, to treat every child as our own and to
+              ensure that even the most complex surgery is handled with kindness
+              and precision. At our paediatric surgery units across Apollo
+              Children’s Hospital and Dr Mehta’s Hospitals, we strive every day to
+              bring comfort, confidence and healing to the children entrusted to us.
+            </p>
+          </div>
 
 
           <!-- right img -->
@@ -769,14 +791,10 @@ bring comfort, confidence and healing to the children entrusted to us.
               class="shadow-xl w-[80%] sm:w-[60%] md:w-full max-w-xs sm:max-w-sm object-cover rounded-[52px] border-6 border-[#FC8F3A] "
               alt="Dr" />
           </div> -->
-<div class="flex-1 hidden md:flex justify-center w-full py-10">
-  <img
-    src="assets/page3/person1.png"
-    class="shadow-xl w-full max-w-sm object-cover
-           rounded-[52px] border-[6px] border-[#FC8F3A]"
-    alt="Dr"
-  />
-</div>
+          <div class="flex-1 hidden md:flex justify-center w-full py-10">
+            <img src="assets/page3/person1.png" class="shadow-xl w-full max-w-sm object-cover
+           rounded-[52px] border-[6px] border-[#FC8F3A]" alt="Dr" />
+          </div>
 
         </div>
       </div>
@@ -784,7 +802,8 @@ bring comfort, confidence and healing to the children entrusted to us.
 
 
     <!-- second section -->
-    <section class="relative w-full min-h-screen bg-top bg-contain bg-repeat flex items-center justify-center px-4 py-8"
+    <section
+      class="relative w-full min-h-screen bg-top bg-contain bg-repeat flex items-center justify-center px-4 py-0 md:py-2"
       style="background-image: url('assets/page3/bg.png')">
       <div class="absolute inset-0 bg-white/90"></div>
 
@@ -801,7 +820,7 @@ bring comfort, confidence and healing to the children entrusted to us.
           invasive surgery, oncology and urology. Committed <br class="hidden sm:block" />to guiding parents
           and ensuring a safe, stress-free surgical experience for children.
         </p>
-        <div class="px-2 md:px-6 
+        <div class="px-2 md:px-6 mb-4
          flex sm:grid gap-6 sm:gap-10 overflow-x-auto sm:overflow-visible 
          whitespace-nowrap sm:whitespace-normal no-scrollbar
          grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
@@ -893,7 +912,7 @@ bring comfort, confidence and healing to the children entrusted to us.
 
             <!-- Paragraphs -->
             <div style="font-family: 'Futura', sans-serif; "
-              class="text-white  text-[22px] md:text-[21px] leading-relaxed space-y-6 px-2 text-left sm:text-left">
+              class="text-white  text-[20px] md:text-[21px] leading-relaxed space-y-6 px-2 text-left sm:text-left">
               <p class=" ">
                 At our Kiddie Surgie paediatric surgery in Chennai, we provide
                 specialised surgical care for newborns, children and teenagers
@@ -1031,33 +1050,75 @@ bring comfort, confidence and healing to the children entrusted to us.
       <div class="w-full max-w-4xl relative">
         <!-- Teddy fixed bottom-left -->
         <img src="assets/page5/teddy.png" alt="Teddy"
-          class="absolute left-0 bottom-0 -translate-x-10 sm:-translate-x-14 md:-translate-x-16 w-52 sm:w-64 md:w-80 lg:w-96 pointer-events-none z-20" />
+          class="absolute left-0 bottom-0 -translate-x-10 sm:-translate-x-16 md:-translate-x-18 w-50 sm:w-62 md:w-78 lg:w-94 pointer-events-none z-20" />
         <!-- Transparent card -->
         <div
-          class="relative mx-auto bg-[#476F94]/80 backdrop-blur-none text-white rounded-[44px] px-4 sm:px-4 md:px-2 py-8 flex flex-col items-center text-center shadow-lg">
+          class="relative mx-auto bg-[#476F94]/80 backdrop-blur-none text-white rounded-[44px] px-4 sm:px-4 md:px-2 py-6 flex flex-col items-center text-center shadow-lg">
           <!-- Heading -->
           <h2 style="font-family: 'Rozha One', serif;"
-            class=" text-[34px] sm:text-[48px] md:text-[56px] text-white mb-4">
+            class=" text-[34px] sm:text-[48px] md:text-[56px] text-white mb-2">
             What Our Patient Say
           </h2>
-          <div>
-            <!-- Paragraph -->
-            <p style="font-family: 'Futura', sans-serif; " class=" text-[22px] md:text-[21px] mb-4 max-w-3xl">
-              My heartly thanks to Doc Vinayak S Regan. My baby is 27 days old had cyst <br class="hidden sm:block" />
-              on her left hand. I visited to Mehta and met vinayak he is such an amazing <br class="hidden sm:block" />
-              person, very polite and caring. He explained very clearly about the problem <br class="hidden sm:block" />
-              politely and undergone with a small surgery. He is very much cooperative and <br
-                class="hidden sm:block" />
-              comfortable. The most kindest pediatric surgeon. Thanks for your time and <br class="hidden sm:block" />
-              humbleness. Thanks a lot doctor.
-            </p>
-            <!-- Author -->
-            <h2 style="font-family: 'Rozha One', serif;" class=" text-[28px] md:text-[32px] text-white mb-4">
-              -Mayuri Padmini
-            </h2>
+          <!-- Swiper Content -->
+          <div class="swiper w-full max-w-3xl mx-auto mb-4">
+            <div class="swiper-wrapper mb-6">
+
+              <!-- Slide 1 -->
+              <div class="swiper-slide">
+                <p style="font-family: 'Futura', sans-serif;" class="text-[18px] md:text-[21px] mb-2">
+                  My heartly thanks to Doc Vinayak S Regan. My baby is 27 days old had cyst
+                  on her left hand. I visited to Mehta and met vinayak he is such an amazing
+                  person, very polite and caring. He explained very clearly about the problem
+                  politely and undergone with a small surgery. He is very much cooperative and
+                  comfortable. The most kindest pediatric surgeon. Thanks for your time and
+                  humbleness. Thanks a lot doctor.
+                </p>
+
+                <h2 style="font-family: 'Rozha One', serif;" class="text-[19px] md:text-[28px] mb-4">
+                  – Mayuri Padmini
+                </h2>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="swiper-slide">
+                <p style="font-family: 'Futura', sans-serif;" class="text-[18px] md:text-[21px] mb-2">
+                  My heartly thanks to Doc Vinayak S Regan. My baby is 27 days old had cyst
+                  on her left hand. I visited to Mehta and met vinayak he is such an amazing
+                  person, very polite and caring. He explained very clearly about the problem
+                  politely and undergone with a small surgery. He is very much cooperative and
+                  comfortable. The most kindest pediatric surgeon. Thanks for your time and
+                  humbleness. Thanks a lot doctor.
+                </p>
+
+                <h2 style="font-family: 'Rozha One', serif;" class="text-[19px] md:text-[28px] mb-4">
+                  – Mayuri Padmini
+                </h2>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="swiper-slide">
+                <p style="font-family: 'Futura', sans-serif;" class="text-[18px] md:text-[21px] mb-2">
+                  My heartly thanks to Doc Vinayak S Regan. My baby is 27 days old had cyst
+                  on her left hand. I visited to Mehta and met vinayak he is such an amazing
+                  person, very polite and caring. He explained very clearly about the problem
+                  politely and undergone with a small surgery. He is very much cooperative and
+                  comfortable. The most kindest pediatric surgeon. Thanks for your time and
+                  humbleness. Thanks a lot doctor.
+                </p>
+
+                <h2 style="font-family: 'Rozha One', serif;" class="text-[19px] md:text-[28px] mb-4">
+                  – Mayuri Padmini
+                </h2>
+              </div>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="swiper-pagination mt-4"></div>
           </div>
+
           <!-- Loading icon (centered below author) -->
-          <img src="assets/page5/loading.svg" alt="loading" class="w-20 sm:w-24 md:w-28 lg:w-32 mt-2 z-10" />
+          <!-- <img src="assets/page5/loading.svg" alt="loading" class="w-20 sm:w-24 md:w-28 lg:w-32 mt-2 z-10" /> -->
         </div>
       </div>
     </section>
@@ -1068,16 +1129,16 @@ bring comfort, confidence and healing to the children entrusted to us.
 
       <!-- Text Content -->
       <div
-        class="relative w-full h-full flex flex-col items-center justify-center text-center px-4 md:px-16 py-10 md:py-14 text-[#476F94]">
+        class="relative w-full h-full flex flex-col items-center justify-center text-center px-4 md:px-16 py-10 md:py-8 text-[#476F94]">
 
         <!-- Heading -->
-        <h2 style="font-family: 'Rozha One', serif;" class="text-[48px] md:text-[64px] mb-4">
+        <h2 style="font-family: 'Rozha One', serif;" class="text-[44px] md:text-[64px] mb-4 leading-tight">
           Why Parents Choose <br />
           Kiddiesurgie?
         </h2>
 
         <!-- Paragraph -->
-        <p style="font-family: 'Futura', sans-serif;" class="text-[22px] md:text-[22px] max-w-3xl mx-auto ">
+        <p style="font-family: 'Futura', sans-serif;" class="text-[20px] md:text-[22px] max-w-3xl mx-auto ">
           Our commitment to excellence, accessibility and compassionate care
           sets us apart. Here’s why families and physicians across Central
           Texas trust us with their pediatric surgical needs.
@@ -1088,7 +1149,7 @@ bring comfort, confidence and healing to the children entrusted to us.
     </section>
 
     <!--card section-->
-    <section class="w-full bg-white py-10">
+    <section class="w-full bg-white py-6">
       <div class="max-w-7xl mx-auto px-4 sm:px-10 md:px-37  grid grid-cols-1 md:grid-cols-2 gap-10">
         <!-- card 1 -->
         <div class="bg-[#476F94] text-white p-4 rounded-3xl shadow-lg">
@@ -1105,10 +1166,10 @@ bring comfort, confidence and healing to the children entrusted to us.
           </div>
 
 
-          <hr class="border-white/40 mb-4" />
+          <hr class="animate-hr border-1 border-white mb-4" />
 
           <p style="font-family: 'Futura', sans-serif; " style="font-family: 'Futura', sans-serif; "
-            class=" text-white/90 leading-relaxed text-[22px] md:text-[19px]  ">
+            class=" text-white/90 leading-relaxed text-[21px] md:text-[19px]  ">
             For more than two decades, our team has cared for
             newborns, infants and children with both simple and complex
             surgical conditions. Led by highly trained paediatric and
@@ -1132,10 +1193,10 @@ bring comfort, confidence and healing to the children entrusted to us.
             </h3>
           </div>
 
-          <hr class="border-white/40 mb-4" />
+          <hr class="animate-hr border-1 border-white mb-4" />
 
           <p style="font-family: 'Futura', sans-serif; "
-            class=" text-white/90 leading-relaxed text-[22px] md:text-[19px]  ">
+            class=" text-white/90 leading-relaxed text-[21px] md:text-[19px]  ">
             We focus exclusively on paediatric surgery, paediatric urology,
             thoracic and neonatal surgery. This means your child receives
             care that is tailored to their age, anatomy and unique needs.
@@ -1158,10 +1219,10 @@ bring comfort, confidence and healing to the children entrusted to us.
             </h3>
           </div>
 
-          <hr class="border-white/40 mb-4" />
+          <hr class="animate-hr border-1 border-white mb-4" />
 
           <p style="font-family: 'Futura', sans-serif; "
-            class=" text-white/90 leading-relaxed text-[22px] md:text-[19px]  ">
+            class=" text-white/90 leading-relaxed text-[21px] md:text-[19px]  ">
             We treat every child as we would our own. We take time to
             explain the diagnosis, discuss treatment options in simple
             language, and support parents at every step. Our approach
@@ -1184,10 +1245,10 @@ bring comfort, confidence and healing to the children entrusted to us.
             </h3>
           </div>
 
-          <hr class="border-white/40 mb-4" />
+          <hr class="animate-hr border-1 border-white mb-4" />
 
           <p style="font-family: 'Futura', sans-serif; "
-            class=" text-white/90 leading-relaxed text-[22px] md:text-[19px] ">
+            class=" text-white/90 leading-relaxed text-[21px] md:text-[19px] ">
             Whenever possible, we offer minimally invasive laparoscopic
             and thoracoscopic surgeries for faster recovery, smaller scars
             and shorter hospital stays. Our team is trained in the latest
@@ -1211,10 +1272,10 @@ bring comfort, confidence and healing to the children entrusted to us.
             </h3>
           </div>
 
-          <hr class="border-white/40 mb-4" />
+          <hr class="animate-hr border-1 border-white mb-4" />
 
           <p style="font-family: 'Futura', sans-serif; "
-            class=" text-white/90 leading-relaxed text-[22px] md:text-[19px] ">
+            class=" text-white/90 leading-relaxed text-[21px] md:text-[19px] ">
             Surgical issues in children often appear suddenly. That is why
             our surgeons are available for urgent assessments, quick
             appointments and rapid decision-making. We coordinate closely
@@ -1238,10 +1299,10 @@ bring comfort, confidence and healing to the children entrusted to us.
             </h3>
           </div>
 
-          <hr class="border-white/40 mb-4" />
+          <hr class="animate-hr border-1 border-white mb-4" />
 
           <p style="font-family: 'Futura', sans-serif; "
-            class=" text-white/90 leading-relaxed text-[22px] md:text-[19px] ">
+            class=" text-white/90 leading-relaxed text-[21px] md:text-[19px] ">
             After surgery, we continue to guide families with personalised follow-up plans. Our structured post-
             operative care helps children recover safely and grow well.
           </p>
@@ -1420,9 +1481,9 @@ bring comfort, confidence and healing to the children entrusted to us.
     </section>
     <section
       class="relative w-full min-h-0 py-8 md:py-6 flex items-center justify-center bg-[#FC8F3A] bg-repeat bg-center bg-auto  overflow-hidden"
-      style="background-image: url('assets/bg.png'); background-size: 35%">
+      style="background-image: url('assets/bg.png'); background-size: 55%">
       <!-- yellow Overlay -->
-      <div class="absolute inset-0 backdrop-blur-sm bg-[#FC8F3A]/55"></div>
+      <div class="absolute inset-0 backdrop-blur-sm bg-[#FC8F3A]/10"></div>
 
       <div class="relative z-10">
 
@@ -1596,7 +1657,7 @@ bring comfort, confidence and healing to the children entrusted to us.
           <div
             class="w-fit mx-auto sm:mx-0 flex flex-col space-y-4 items-center sm:items-start text-center sm:text-left order-1 md:order-none">
             <img src="assets/page5/kiddiesurgie.png" class="w-74 sm:w-46 md:w-44 lg:w-52 h-auto" />
-            <p style="font-family: 'Futura', sans-serif; " class=" text-[24px] md:text-[18px] text-left">
+            <p style="font-family: 'Futura', sans-serif; " class=" text-[21px] md:text-[18px] text-left">
               Our compassionate team is <br class="hidden sm:block" />
               here to make your child’s <br class="hidden sm:block" />
               surgical journey as smooth <br class="hidden sm:block" />
@@ -1611,7 +1672,8 @@ bring comfort, confidence and healing to the children entrusted to us.
           </div>
 
           <!-- Column 2 -->
-          <div class="sm:pt-6 md:pt-8 w-fit mx-0 flex flex-col space-y-4 items-start text-left sm:text-left order-2 md:order-none">
+          <div
+            class="sm:pt-6 md:pt-8 w-fit mx-0 flex flex-col space-y-4 items-start text-left sm:text-left order-2 md:order-none">
             <p style="font-family: 'Futura', sans-serif; " class=" text-[22px] md:text-[16px] font-semibold">
               Contact Us</p>
             <p style="font-family: 'Futura', sans-serif; " class=" text-[22px] md:text-[18px]">info@kiddisurgie.com</p>
@@ -1622,7 +1684,8 @@ bring comfort, confidence and healing to the children entrusted to us.
           </div>
 
           <!-- Column 3 -->
-          <div class="sm:pt-6 md:pt-8 w-fit mx-0 flex flex-col space-y-4 items-start text-left sm:text-left order-4 md:order-none">
+          <div
+            class="sm:pt-6 md:pt-8 w-fit mx-0 flex flex-col space-y-4 items-start text-left sm:text-left order-4 md:order-none">
             <p style="font-family: 'Futura', sans-serif; " class=" text-[22px] md:text-[16px]">
               © 2025 <br />
               kiddisurgie.com
@@ -1634,7 +1697,8 @@ bring comfort, confidence and healing to the children entrusted to us.
           </div>
 
           <!-- Column 4 -->
-          <div class="sm:pt-6 md:pt-8 w-fit mx-0 flex flex-col space-y-4 items-start text-left sm:text-left order-3 md:order-none">
+          <div
+            class="sm:pt-6 md:pt-8 w-fit mx-0 flex flex-col space-y-4 items-start text-left sm:text-left order-3 md:order-none">
             <div class="flex items-center px-2 gap-6 text-[22px]">
               <!-- <img src="assets/page5/mail.svg" class="w-6" /> -->
               <i class="fa-solid fa-envelope "></i>
