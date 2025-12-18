@@ -34,18 +34,21 @@
     <!-- page1  -->
 
 
-    <section id="prevSection" class="relative w-full min-h-screen bg-cover bg-center 
-         flex items-center justify-center sm:justify-end overflow-hidden">
+    <section id="prevSection"
+  class="relative w-full min-h-screen bg-cover bg-center
+         flex items-center justify-center sm:justify-end overflow-hidden"
+  style="background-image: url('assets/page1/Gently\ escort.png');">
+
 
       <!-- Background Video -->
-      <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover ">
+      <!-- <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover ">
         <source src="assets/page1/kiddiesurgie hero part mp4.mp4" type="video/mp4">
-      </video>
+      </video> -->
       <!-- transparent card -->
 
       
       <div class="relative z-10
-     bg-[#456c89]/2 md:bg-[#456c89]/60 backdrop-blur-sm text-white
+     bg-[#456c89]/0 md:bg-[#456c89]/60 backdrop-blur-[4px] text-white
 
      /* MOBILE: FULL SCREEN, NO EMPTY SPACE */
      w-full min-h-screen
@@ -1869,17 +1872,29 @@ I am genuinely grateful for their expertise and highly recommend them to any par
   <!-- Mobile Call Now Button -->
 <a href="tel:+916381130476"
    class="fixed bottom-0 left-0 right-0
-          bg-[#FFB37A]
+          bg-[#476F94]
           text-white
-          flex items-center justify-center gap-3
-          py-4
+          flex flex-col items-center justify-center
+          py-3
           text-[18px] font-semibold
           z-[9999]
           md:hidden">
 
-  <i class="fa-solid fa-phone"></i>
-  Call Now
+  <!-- Top text -->
+  <span
+    class="text-[14px] opacity-90 mb-2 text-center"
+    style="font-family: 'CanvaSans', sans-serif;">
+    For Appointments
+  </span>
+
+  <!-- Bottom row: icon + call now -->
+  <div class="flex items-center gap-2">
+    <i class="fa-solid fa-phone "></i>
+    <span style="font-family: 'CanvaSans', sans-serif;">Call Now</span>
+  </div>
+
 </a>
+
 
   <!-- script -->
   <script src="main.js"></script>
