@@ -114,6 +114,7 @@ let startX = 0;
 let currentTranslate = 0;
 let prevTranslate = 0;
 let isDragging = false;
+let isAnimating = false; // 🔒 LOCK
 
 // ---------- HELPERS ----------
 function setPosition() {
@@ -121,19 +122,28 @@ function setPosition() {
 }
 
 function slideToIndex() {
+  isAnimating = true; // 🔒 lock input
+
   const slideWidth = slides[0].offsetWidth;
   currentTranslate = -index * slideWidth;
   prevTranslate = currentTranslate;
+
   track.style.transition = "transform 0.35s ease";
   setPosition();
+
+  // 🔓 unlock after animation
+  setTimeout(() => {
+    isAnimating = false;
+  }, 350);
 }
 
 function clampIndex() {
   index = Math.max(0, Math.min(index, slides.length - 1));
 }
 
-// ---------- POINTER DRAG (mouse press + drag) ----------
+// ---------- POINTER DRAG ----------
 function pointerDown(e) {
+  if (isAnimating) return; // 🚫 ignore during animation
   isDragging = true;
   startX = e.clientX;
   track.style.transition = "none";
@@ -141,35 +151,39 @@ function pointerDown(e) {
 }
 
 function pointerMove(e) {
-  if (!isDragging) return;
+  if (!isDragging || isAnimating) return;
+
   const deltaX = e.clientX - startX;
   currentTranslate = prevTranslate + deltaX;
   setPosition();
 }
 
 function pointerUp(e) {
-  if (!isDragging) return;
+  if (!isDragging || isAnimating) return;
   isDragging = false;
 
   const slideWidth = slides[0].offsetWidth;
   const movedBy = currentTranslate - prevTranslate;
+  const threshold = slideWidth * 0.25;
 
-  if (movedBy < -slideWidth / 4) index++;
-  if (movedBy > slideWidth / 4) index--;
+  if (movedBy < -threshold) index += 1;
+  else if (movedBy > threshold) index -= 1;
 
   clampIndex();
   slideToIndex();
+
   track.releasePointerCapture(e.pointerId);
 }
 
-// ---------- TRACKPAD SWIPE (NO CLICK) ----------
+// ---------- TRACKPAD SWIPE (ONE SLIDE ONLY) ----------
 function wheelSwipe(e) {
+  if (isAnimating) return; // 🚫 prevent skipping
   if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
 
   e.preventDefault();
 
-  if (e.deltaX > 30) index++;
-  if (e.deltaX < -30) index--;
+  if (e.deltaX > 30) index += 1;
+  else if (e.deltaX < -30) index -= 1;
 
   clampIndex();
   slideToIndex();
@@ -181,8 +195,6 @@ track.addEventListener("pointermove", pointerMove);
 track.addEventListener("pointerup", pointerUp);
 track.addEventListener("pointercancel", pointerUp);
 track.addEventListener("pointerleave", pointerUp);
-
-// Trackpad support
 track.addEventListener("wheel", wheelSwipe, { passive: false });
 
 
