@@ -106,7 +106,6 @@ function closePopup() {
 
 
 //----------------slider ---------------------------//
-
 const track = document.getElementById("carouselTrack");
 const slides = track.children;
 
@@ -125,7 +124,7 @@ function slideToIndex() {
   const slideWidth = slides[0].offsetWidth;
   currentTranslate = -index * slideWidth;
   prevTranslate = currentTranslate;
-  track.style.transition = "transform 0.4s ease";
+  track.style.transition = "transform 0.35s ease";
   setPosition();
 }
 
@@ -133,23 +132,22 @@ function clampIndex() {
   index = Math.max(0, Math.min(index, slides.length - 1));
 }
 
-// ---------- DRAG START ----------
-function dragStart(e) {
+// ---------- POINTER DRAG (mouse press + drag) ----------
+function pointerDown(e) {
   isDragging = true;
-  startX = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+  startX = e.clientX;
   track.style.transition = "none";
+  track.setPointerCapture(e.pointerId);
 }
 
-// ---------- DRAG MOVE ----------
-function dragMove(e) {
+function pointerMove(e) {
   if (!isDragging) return;
-  const currentX = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
-  currentTranslate = prevTranslate + (currentX - startX);
+  const deltaX = e.clientX - startX;
+  currentTranslate = prevTranslate + deltaX;
   setPosition();
 }
 
-// ---------- DRAG END ----------
-function dragEnd() {
+function pointerUp(e) {
   if (!isDragging) return;
   isDragging = false;
 
@@ -161,18 +159,31 @@ function dragEnd() {
 
   clampIndex();
   slideToIndex();
+  track.releasePointerCapture(e.pointerId);
 }
 
-// ---------- MOUSE EVENTS ----------
-track.addEventListener("mousedown", dragStart);
-window.addEventListener("mousemove", dragMove);
-window.addEventListener("mouseup", dragEnd);
+// ---------- TRACKPAD SWIPE (NO CLICK) ----------
+function wheelSwipe(e) {
+  if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
 
-// ---------- TOUCH EVENTS ----------
-track.addEventListener("touchstart", dragStart, { passive: true });
-track.addEventListener("touchmove", dragMove, { passive: true });
-track.addEventListener("touchend", dragEnd);
+  e.preventDefault();
 
+  if (e.deltaX > 30) index++;
+  if (e.deltaX < -30) index--;
+
+  clampIndex();
+  slideToIndex();
+}
+
+// ---------- EVENTS ----------
+track.addEventListener("pointerdown", pointerDown);
+track.addEventListener("pointermove", pointerMove);
+track.addEventListener("pointerup", pointerUp);
+track.addEventListener("pointercancel", pointerUp);
+track.addEventListener("pointerleave", pointerUp);
+
+// Trackpad support
+track.addEventListener("wheel", wheelSwipe, { passive: false });
 
 
 //--------------FAQ section arrow --------------------//
