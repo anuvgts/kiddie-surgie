@@ -100,6 +100,38 @@ if (document.querySelector(".swiper")) {
     speed: 800,
   });
 }
+//-----faq toggle -----//
+function toggleFaq(button) {
+  const faqItem = button.closest(".faq-item");
+  const answer = faqItem.querySelector(".faq-answer");
+  const arrow = faqItem.querySelector(".faq-arrow");
+
+  const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
+
+  // CLOSE all other FAQs (optional but recommended UX)
+  document.querySelectorAll(".faq-answer").forEach((el) => {
+    if (el !== answer) {
+      el.style.maxHeight = "0px";
+    }
+  });
+
+  document.querySelectorAll(".faq-arrow").forEach((el) => {
+    if (el !== arrow) {
+      el.classList.remove("rotate-180");
+    }
+  });
+
+  // TOGGLE current FAQ
+  if (isOpen) {
+    answer.style.maxHeight = "0px";
+    arrow.classList.remove("rotate-180");
+  } else {
+    answer.style.maxHeight = answer.scrollHeight + "px";
+    arrow.classList.add("rotate-180");
+  }
+}
+
+
 
 //-----services dropdown ------//
 const serviceSelect = document.getElementById("serviceSelect");
