@@ -41,14 +41,16 @@
  <!-- DESKTOP SLIDING BACKGROUNDS -->
 <div class="absolute inset-0 hidden md:block z-0 overflow-hidden">
   <div class="slider-wrapper">
-    <div class="slider-track">
-      <div class="slide slide-1"></div>
-      <div class="slide slide-2"></div>
+  <div class="slider-track">
+    <div class="slide slide-1"></div>
+    <div class="slide slide-2"></div>
+    <div class="slide slide-3"></div>
 
-      <!-- duplicate slide for smooth loop -->
-      <div class="slide slide-1"></div>
-    </div>
+    <!-- duplicate first slide for smooth loop -->
+    <div class="slide slide-1"></div>
   </div>
+</div>
+
 </div>
 
 
@@ -63,19 +65,19 @@
 
 
       <div class="relative z-10
-     bg-[#456c89]/0 md:bg-[#456c89]/90 backdrop-blur-[4px] text-white
+     bg-[#456c89]/0 md:bg-[#456c89]/65 backdrop-blur-[4px] text-white
 
      /* MOBILE: FULL SCREEN, NO EMPTY SPACE */
      w-full min-h-screen
      flex flex-col justify-center
-items-center text-center
-sm:items-start sm:text-left
+      items-center text-center
+      sm:items-start sm:text-left
 
      px-4 py-6
      rounded-none
 
      /* DESKTOP (UNCHANGED) */
-     sm:w-[70%] md:w-[50%]
+     md:w-[50%]
      sm:min-h-0
      sm:justify-center
      sm:px-10 md:px-14
@@ -162,7 +164,11 @@ sm:items-start sm:text-left
 
     <section class="relative py-16 flex justify-center px-6 md:px-20 lg:px-32 xl:px-40
          bg-[#FC8F3A] bg-repeat bg-center bg-auto overflow-hidden"
-      style="background-image: url('assets/bg.png'); background-size: 55%">
+     >
+       <!-- <section class="relative py-16 flex justify-center px-6 md:px-20 lg:px-32 xl:px-40
+         bg-[#FC8F3A] bg-repeat bg-center bg-auto overflow-hidden"
+      style="background-image: url('assets/bg.png'); background-size: 55%"> -->
+
 
       <!-- Yellow Overlay (ONLY for this section) -->
       <div class="absolute inset-0 bg-[#FC8F3A]/10 backdrop-blur-sm z-0"></div>
@@ -280,13 +286,13 @@ sm:items-start sm:text-left
 <button
   id="prevSlide"
   class="hidden md:flex absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-30
-         w-10 h-10 md:w-12 md:h-12 rounded-full bg-white
+         w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#FC8F3A]
          items-center justify-center
          shadow-[0_10px_25px_rgba(0,0,0,0.15)]
          transition-all duration-300
          hover:scale-110 active:scale-95">
 
-  <svg class="w-5 h-5 text-[#476F94]" fill="none" stroke="currentColor" stroke-width="3"
+  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="3"
        viewBox="0 0 24 24">
     <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
   </svg>
@@ -298,13 +304,13 @@ sm:items-start sm:text-left
 <button
   id="nextSlide"
   class="hidden md:flex absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-30
-         w-10 h-10 md:w-12 md:h-12 rounded-full bg-white
+         w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#FC8F3A]
          items-center justify-center
          shadow-[0_10px_25px_rgba(0,0,0,0.15)]
          transition-all duration-300
          hover:scale-110 active:scale-95">
 
-  <svg class="w-5 h-5 text-[#476F94]" fill="none" stroke="currentColor" stroke-width="3"
+  <svg class="w-5 h-5 text- white" fill="none" stroke="currentColor" stroke-width="3"
        viewBox="0 0 24 24">
     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
   </svg>
@@ -947,7 +953,7 @@ sm:items-start sm:text-left
 
     <!-- Page 4 -->
 
-    <section class="bg-[#456c89] w-full bg-cover bg-top relative">
+    <section id="our_services" class="bg-[#456c89] w-full bg-cover bg-top relative">
 
       <div>
         <!-- part1 -->
@@ -1560,7 +1566,10 @@ sm:items-start sm:text-left
     </section>
     <section id="bookappointment"
       class="relative w-full min-h-0 py-8 md:py-6 flex items-center justify-center bg-[#FC8F3A] bg-repeat bg-center bg-auto  overflow-hidden"
-      style="background-image: url('assets/bg.png'); background-size: 55%">
+      >
+      <!-- <section id="bookappointment"
+      class="relative w-full min-h-0 py-8 md:py-6 flex items-center justify-center bg-[#FC8F3A] bg-repeat bg-center bg-auto  overflow-hidden"
+      style="background-image: url('assets/bg.png'); background-size: 55%"> -->
       <!-- yellow Overlay -->
       <div class="absolute inset-0 backdrop-blur-sm bg-[#FC8F3A]/10"></div>
 
@@ -1735,7 +1744,7 @@ sm:items-start sm:text-left
   
   <!-- Mobile Call Now Button -->
   <a href="tel:+916381130476" class="fixed bottom-0 left-0 right-0
-          bg-[#476F94]
+          bg-[#FC8F3A]
           text-white
           flex flex-col items-center justify-center
           py-3

@@ -66,29 +66,59 @@ document.addEventListener("DOMContentLoaded", () => {
   prevBtn?.addEventListener("click", () => goToSlide(index - 1));
   nextBtn?.addEventListener("click", () => goToSlide(index + 1));
 
-  const createDots = () => {
-    if (!dotsContainer) return;
-    dotsContainer.innerHTML = "";
-    slides.forEach((_, i) => {
-      const dot = document.createElement("button");
-      dot.className = "w-2.5 h-2.5 rounded-full bg-[#79A3C5]";
-      dot.onclick = () => goToSlide(i);
-      dotsContainer.appendChild(dot);
-    });
-  };
+  // const createDots = () => {
+  //   if (!dotsContainer) return;
+  //   dotsContainer.innerHTML = "";
+  //   slides.forEach((_, i) => {
+  //     const dot = document.createElement("button");
+  //     dot.className = "w-2.5 h-2.5 rounded-full bg-[#79A3C5]";
+  //     dot.onclick = () => goToSlide(i);
+  //     dotsContainer.appendChild(dot);
+  //   });
+  // };
 
-  const updateDots = () => {
-    if (!dotsContainer) return;
-    [...dotsContainer.children].forEach((dot, i) => {
-      dot.classList.toggle("bg-[#FC8F3A]", i === index);
-    });
-  };
+  // const updateDots = () => {
+  //   if (!dotsContainer) return;
+  //   [...dotsContainer.children].forEach((dot, i) => {
+  //     dot.classList.toggle("bg-[#FC8F3A]", i === index);
+  //   });
+  // };
+
+  const createDots = () => {
+  if (!dotsContainer) return;
+  dotsContainer.innerHTML = "";
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+
+    // BOTH classes present so Tailwind builds them
+    dot.className =
+      "w-2.5 h-2.5 rounded-full bg-[#79A3C5] data-[active=true]:bg-[#FC8F3A]";
+
+    dot.dataset.active = "false";
+    dot.onclick = () => goToSlide(i);
+
+    dotsContainer.appendChild(dot);
+  });
+};
+
+
+const updateDots = () => {
+  if (!dotsContainer) return;
+  [...dotsContainer.children].forEach((dot, i) => {
+    dot.dataset.active = i === index;
+  });
+};
+
 
   window.addEventListener("load", () => {
     createDots();
     goToSlide(0);
   });
 });
+
+
+
 
 //-------- testimonial swiper------//
 if (document.querySelector(".swiper")) {

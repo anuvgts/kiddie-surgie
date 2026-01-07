@@ -53,14 +53,14 @@ body {
 
 .slider-track {
   display: flex;
-  width: 300%;
+  width: 400%;
   height: 100%;
   animation: sliderSlide 24s ease-in-out infinite;
 }
 
 
 .slide {
-  width: 100%;
+  width: 25%;
   height: 100%;
   background-repeat: repeat;
   background-position: center;
@@ -69,39 +69,41 @@ body {
 
 .slide-1 {
   background-image: url("assets/page1/Gently\ escort.webp");
-  background-size: 63%;
+  background-size: 70%;
 }
 
 .slide-2 {
   background-image: url("assets/page5/bg1.webp");
-  background-size: 88%;
+  background-size: 100%;
 }
 
+.slide-3 {
+  background-image: url("assets/page1/Hero\ Part\ bg\ 3rd\ image.jpeg");
+  background-size: 100%;
+}
 
 @keyframes sliderSlide {
- 
-  0% {
-    transform: translateX(0%);
-  }
-  40% {
+  /* Slide 1 */
+  0%, 25% {
     transform: translateX(0%);
   }
 
-  
-  50% {
-    transform: translateX(-33.333%);
+  /* Slide 2 */
+  33%, 58% {
+    transform: translateX(-25%);
   }
 
-  
-  90% {
-    transform: translateX(-33.333%);
+  /* Slide 3 */
+  66%, 91% {
+    transform: translateX(-50%);
   }
 
-  
+  /* Duplicate slide */
   100% {
-    transform: translateX(-66.666%);
+    transform: translateX(-75%);
   }
 }
+
 
 
 
