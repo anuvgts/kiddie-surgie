@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let index = 0;
 
-  // ---------- Helpers ----------
+  /* ---------- Helpers ---------- */
   const slideWidth = () => slides[0].offsetWidth;
 
   const goToSlide = (i) => {
@@ -151,31 +151,36 @@ document.addEventListener("DOMContentLoaded", () => {
     updateDots();
   };
 
-  // ---------- Arrows ----------
+  /* ---------- Arrow Buttons ---------- */
   prevBtn?.addEventListener("click", () => goToSlide(index - 1));
   nextBtn?.addEventListener("click", () => goToSlide(index + 1));
 
-  // ---------- Mobile + Touchscreen Swipe ----------
+  /* ---------- Touch Swipe (Mobile + Touchscreen Desktop) ---------- */
   let startX = 0;
   let startY = 0;
-  let deltaX = 0;
+  let currentX = 0;
   let isSwiping = false;
   let isHorizontal = null;
 
-  track.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    deltaX = 0;
-    isHorizontal = null;
+  track.addEventListener("pointerdown", (e) => {
+    // ❌ Block mouse drag
+    if (e.pointerType === "mouse") return;
+
+    startX = e.clientX;
+    startY = e.clientY;
+    currentX = startX;
     isSwiping = true;
+    isHorizontal = null;
+
     track.style.transition = "none";
+    track.setPointerCapture(e.pointerId);
   });
 
-  track.addEventListener("touchmove", (e) => {
-    if (!isSwiping) return;
+  track.addEventListener("pointermove", (e) => {
+    if (!isSwiping || e.pointerType === "mouse") return;
 
-    const dx = e.touches[0].clientX - startX;
-    const dy = e.touches[0].clientY - startY;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
 
     if (isHorizontal === null) {
       isHorizontal = Math.abs(dx) > Math.abs(dy);
@@ -185,32 +190,34 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isHorizontal) return;
 
     e.preventDefault();
-    deltaX = dx;
+    currentX = e.clientX;
+
     track.style.transform = `translateX(${dx - index * slideWidth()}px)`;
   });
 
-  track.addEventListener("touchend", () => {
-    if (!isSwiping) return;
+  track.addEventListener("pointerup", endSwipe);
+  track.addEventListener("pointercancel", endSwipe);
+
+  function endSwipe(e) {
+    if (!isSwiping || e.pointerType === "mouse") return;
+
     isSwiping = false;
 
+    const diff = currentX - startX;
     const threshold = slideWidth() * 0.25;
 
-    if (deltaX > threshold) {
-      goToSlide(index - 1);
-    } else if (deltaX < -threshold) {
-      goToSlide(index + 1);
-    } else {
-      goToSlide(index);
-    }
-  });
+    if (diff > threshold) goToSlide(index - 1);
+    else if (diff < -threshold) goToSlide(index + 1);
+    else goToSlide(index);
+  }
 
-  // ---------- Desktop Trackpad Swipe ----------
+  /* ---------- Trackpad Swipe (Desktop) ---------- */
   let wheelTimeout = null;
 
   track.addEventListener(
     "wheel",
     (e) => {
-      // Let vertical scrolling work
+      // Let vertical scroll work
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) return;
 
       e.preventDefault();
@@ -219,16 +226,14 @@ document.addEventListener("DOMContentLoaded", () => {
       wheelTimeout = setTimeout(() => {
         if (e.deltaX > 40) goToSlide(index + 1);
         if (e.deltaX < -40) goToSlide(index - 1);
-      }, 50);
+      }, 60);
     },
     { passive: false }
   );
 
-  // ---------- Dots ----------
+  /* ---------- Dots (Mobile Only) ---------- */
   const createDots = () => {
-    if (!dotsContainer) return;
     dotsContainer.innerHTML = "";
-
     slides.forEach((_, i) => {
       const dot = document.createElement("button");
       dot.className =
@@ -240,13 +245,12 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const updateDots = () => {
-    if (!dotsContainer) return;
     [...dotsContainer.children].forEach((dot, i) => {
       dot.dataset.active = i === index;
     });
   };
 
-  // ---------- Init ----------
+  /* ---------- Init ---------- */
   window.addEventListener("resize", () => goToSlide(index));
   createDots();
   goToSlide(0);
