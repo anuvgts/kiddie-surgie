@@ -43,8 +43,7 @@ fetch("footer.html")
     initQuestionForm();
   });
 
-
-//----scope of services carousel ------//
+// ---- Scope of services carousel ---- //
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.getElementById("carouselTrack");
   if (!track) return;
@@ -55,68 +54,83 @@ document.addEventListener("DOMContentLoaded", () => {
   const dotsContainer = document.getElementById("carouselDots");
 
   let index = 0;
+  let startX = 0;
+  let currentX = 0;
+  let isDragging = false;
 
   const slideWidth = () => slides[0].offsetWidth;
+
   const goToSlide = (i) => {
     index = Math.max(0, Math.min(i, slides.length - 1));
+    track.style.transition = "transform 0.3s ease-out";
     track.style.transform = `translateX(${-index * slideWidth()}px)`;
     updateDots();
   };
 
+  // ---------------- Desktop arrows ----------------
   prevBtn?.addEventListener("click", () => goToSlide(index - 1));
   nextBtn?.addEventListener("click", () => goToSlide(index + 1));
 
-  // const createDots = () => {
-  //   if (!dotsContainer) return;
-  //   dotsContainer.innerHTML = "";
-  //   slides.forEach((_, i) => {
-  //     const dot = document.createElement("button");
-  //     dot.className = "w-2.5 h-2.5 rounded-full bg-[#79A3C5]";
-  //     dot.onclick = () => goToSlide(i);
-  //     dotsContainer.appendChild(dot);
-  //   });
-  // };
-
-  // const updateDots = () => {
-  //   if (!dotsContainer) return;
-  //   [...dotsContainer.children].forEach((dot, i) => {
-  //     dot.classList.toggle("bg-[#FC8F3A]", i === index);
-  //   });
-  // };
-
+  // ---------------- Dots ----------------
   const createDots = () => {
-  if (!dotsContainer) return;
-  dotsContainer.innerHTML = "";
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = "";
 
-  slides.forEach((_, i) => {
-    const dot = document.createElement("button");
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.className =
+        "w-2.5 h-2.5 rounded-full bg-[#79A3C5] data-[active=true]:bg-[#FC8F3A]";
+      dot.dataset.active = "false";
+      dot.addEventListener("click", () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+  };
 
-    // BOTH classes present so Tailwind builds them
-    dot.className =
-      "w-2.5 h-2.5 rounded-full bg-[#79A3C5] data-[active=true]:bg-[#FC8F3A]";
+  const updateDots = () => {
+    if (!dotsContainer) return;
+    [...dotsContainer.children].forEach((dot, i) => {
+      dot.dataset.active = i === index;
+    });
+  };
 
-    dot.dataset.active = "false";
-    dot.onclick = () => goToSlide(i);
-
-    dotsContainer.appendChild(dot);
+  // ---------------- Touch swipe (Mobile) ----------------
+  track.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+    track.style.transition = "none";
   });
-};
 
-
-const updateDots = () => {
-  if (!dotsContainer) return;
-  [...dotsContainer.children].forEach((dot, i) => {
-    dot.dataset.active = i === index;
+  track.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    currentX = e.touches[0].clientX;
+    const diff = currentX - startX;
+    track.style.transform = `translateX(${diff - index * slideWidth()}px)`;
   });
-};
 
+  track.addEventListener("touchend", () => {
+    if (!isDragging) return;
+    isDragging = false;
 
+    const diff = currentX - startX;
+    const threshold = slideWidth() / 4;
+
+    if (diff > threshold) {
+      goToSlide(index - 1);
+    } else if (diff < -threshold) {
+      goToSlide(index + 1);
+    } else {
+      goToSlide(index);
+    }
+  });
+
+  // ---------------- Init ----------------
   window.addEventListener("load", () => {
     createDots();
     goToSlide(0);
   });
-});
 
+  window.addEventListener("resize", () => goToSlide(index));
+});
 
 
 
