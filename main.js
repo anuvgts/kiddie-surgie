@@ -137,104 +137,118 @@ document.addEventListener("DOMContentLoaded", () => {
   const slides = [...track.children];
   const prevBtn = document.getElementById("prevSlide");
   const nextBtn = document.getElementById("nextSlide");
+  const dotsContainer = document.getElementById("carouselDots");
 
   let index = 0;
 
-  // ---------------- Helpers ----------------
+  // ---------- Helpers ----------
   const slideWidth = () => slides[0].offsetWidth;
 
   const goToSlide = (i) => {
     index = Math.max(0, Math.min(i, slides.length - 1));
-    track.style.transition = "transform 0.3s ease-out";
+    track.style.transition = "transform 0.35s ease";
     track.style.transform = `translateX(${-index * slideWidth()}px)`;
+    updateDots();
   };
 
-  // ---------------- Arrow Buttons ----------------
+  // ---------- Arrows ----------
   prevBtn?.addEventListener("click", () => goToSlide(index - 1));
   nextBtn?.addEventListener("click", () => goToSlide(index + 1));
 
-  // ---------- Pointer (Mouse + Touch) ----------
+  // ---------- Mobile + Touchscreen Swipe ----------
   let startX = 0;
   let startY = 0;
-  let currentX = 0;
-  let isDragging = false;
-  let isHorizontalSwipe = null;
+  let deltaX = 0;
+  let isSwiping = false;
+  let isHorizontal = null;
 
-  track.addEventListener("pointerdown", (e) => {
-    startX = e.clientX;
-    startY = e.clientY;
-    currentX = startX;
-
-    isDragging = true;
-    isHorizontalSwipe = null;
-
+  track.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    deltaX = 0;
+    isHorizontal = null;
+    isSwiping = true;
     track.style.transition = "none";
-    track.setPointerCapture(e.pointerId);
   });
 
-  track.addEventListener("pointermove", (e) => {
-    if (!isDragging) return;
+  track.addEventListener("touchmove", (e) => {
+    if (!isSwiping) return;
 
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
+    const dx = e.touches[0].clientX - startX;
+    const dy = e.touches[0].clientY - startY;
 
-    if (isHorizontalSwipe === null) {
-      isHorizontalSwipe = Math.abs(dx) > Math.abs(dy);
+    if (isHorizontal === null) {
+      isHorizontal = Math.abs(dx) > Math.abs(dy);
     }
 
-    // Vertical scroll → allow page scroll
-    if (!isHorizontalSwipe) return;
+    // Allow vertical scroll
+    if (!isHorizontal) return;
 
     e.preventDefault();
-    currentX = e.clientX;
-
+    deltaX = dx;
     track.style.transform = `translateX(${dx - index * slideWidth()}px)`;
   });
 
-  track.addEventListener("pointerup", endSwipe);
-  track.addEventListener("pointercancel", endSwipe);
+  track.addEventListener("touchend", () => {
+    if (!isSwiping) return;
+    isSwiping = false;
 
-  function endSwipe() {
-    if (!isDragging) return;
-    isDragging = false;
+    const threshold = slideWidth() * 0.25;
 
-    const diff = currentX - startX;
-    const threshold = slideWidth() / 4;
-
-    if (diff > threshold) {
+    if (deltaX > threshold) {
       goToSlide(index - 1);
-    } else if (diff < -threshold) {
+    } else if (deltaX < -threshold) {
       goToSlide(index + 1);
     } else {
       goToSlide(index);
     }
-  }
+  });
 
-  // ---------- TRACKPAD (Desktop Two-Finger Swipe) ----------
+  // ---------- Desktop Trackpad Swipe ----------
   let wheelTimeout = null;
 
   track.addEventListener(
     "wheel",
     (e) => {
-      // vertical scroll should work
+      // Let vertical scrolling work
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) return;
 
       e.preventDefault();
 
       clearTimeout(wheelTimeout);
       wheelTimeout = setTimeout(() => {
-        if (e.deltaX > 30) {
-          goToSlide(index + 1);
-        } else if (e.deltaX < -30) {
-          goToSlide(index - 1);
-        }
-      }, 40);
+        if (e.deltaX > 40) goToSlide(index + 1);
+        if (e.deltaX < -40) goToSlide(index - 1);
+      }, 50);
     },
     { passive: false }
   );
 
-  // ---------------- Init ----------------
+  // ---------- Dots ----------
+  const createDots = () => {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = "";
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.className =
+        "w-2.5 h-2.5 rounded-full bg-[#79A3C5] data-[active=true]:bg-[#FC8F3A]";
+      dot.dataset.active = i === index;
+      dot.addEventListener("click", () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+  };
+
+  const updateDots = () => {
+    if (!dotsContainer) return;
+    [...dotsContainer.children].forEach((dot, i) => {
+      dot.dataset.active = i === index;
+    });
+  };
+
+  // ---------- Init ----------
   window.addEventListener("resize", () => goToSlide(index));
+  createDots();
   goToSlide(0);
 });
 
