@@ -43,71 +43,158 @@ fetch("footer.html")
     initQuestionForm();
   });
 
-// ---- Scope of services carousel ---- //
+// // ---- Scope of services carousel ---- //
+// document.addEventListener("DOMContentLoaded", () => {
+//   const track = document.getElementById("carouselTrack");
+//   if (!track) return;
+
+//   const slides = [...track.children];
+//   const prevBtn = document.getElementById("prevSlide");
+//   const nextBtn = document.getElementById("nextSlide");
+//   const dotsContainer = document.getElementById("carouselDots");
+
+//   let index = 0;
+//   let startX = 0;
+//   let currentX = 0;
+//   let isDragging = false;
+
+//   const slideWidth = () => slides[0].offsetWidth;
+
+//   const goToSlide = (i) => {
+//     index = Math.max(0, Math.min(i, slides.length - 1));
+//     track.style.transition = "transform 0.3s ease-out";
+//     track.style.transform = `translateX(${-index * slideWidth()}px)`;
+//     updateDots();
+//   };
+
+//   // ---------------- Desktop arrows ----------------
+//   prevBtn?.addEventListener("click", () => goToSlide(index - 1));
+//   nextBtn?.addEventListener("click", () => goToSlide(index + 1));
+
+//   // ---------------- Dots ----------------
+//   const createDots = () => {
+//     if (!dotsContainer) return;
+//     dotsContainer.innerHTML = "";
+
+//     slides.forEach((_, i) => {
+//       const dot = document.createElement("button");
+//       dot.className =
+//         "w-2.5 h-2.5 rounded-full bg-[#79A3C5] data-[active=true]:bg-[#FC8F3A]";
+//       dot.dataset.active = "false";
+//       dot.addEventListener("click", () => goToSlide(i));
+//       dotsContainer.appendChild(dot);
+//     });
+//   };
+
+//   const updateDots = () => {
+//     if (!dotsContainer) return;
+//     [...dotsContainer.children].forEach((dot, i) => {
+//       dot.dataset.active = i === index;
+//     });
+//   };
+
+//   // ---------------- Touch swipe (Mobile) ----------------
+//   track.addEventListener("touchstart", (e) => {
+//     startX = e.touches[0].clientX;
+//     isDragging = true;
+//     track.style.transition = "none";
+//   });
+
+//   track.addEventListener("touchmove", (e) => {
+//     if (!isDragging) return;
+//     currentX = e.touches[0].clientX;
+//     const diff = currentX - startX;
+//     track.style.transform = `translateX(${diff - index * slideWidth()}px)`;
+//   });
+
+//   track.addEventListener("touchend", () => {
+//     if (!isDragging) return;
+//     isDragging = false;
+
+//     const diff = currentX - startX;
+//     const threshold = slideWidth() / 4;
+
+//     if (diff > threshold) {
+//       goToSlide(index - 1);
+//     } else if (diff < -threshold) {
+//       goToSlide(index + 1);
+//     } else {
+//       goToSlide(index);
+//     }
+//   });
+
+//   // ---------------- Init ----------------
+//   window.addEventListener("load", () => {
+//     createDots();
+//     goToSlide(0);
+//   });
+
+//   window.addEventListener("resize", () => goToSlide(index));
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.getElementById("carouselTrack");
-  if (!track) return;
-
   const slides = [...track.children];
   const prevBtn = document.getElementById("prevSlide");
   const nextBtn = document.getElementById("nextSlide");
-  const dotsContainer = document.getElementById("carouselDots");
 
   let index = 0;
-  let startX = 0;
-  let currentX = 0;
-  let isDragging = false;
 
+  // ---------------- Helpers ----------------
   const slideWidth = () => slides[0].offsetWidth;
 
   const goToSlide = (i) => {
     index = Math.max(0, Math.min(i, slides.length - 1));
     track.style.transition = "transform 0.3s ease-out";
     track.style.transform = `translateX(${-index * slideWidth()}px)`;
-    updateDots();
   };
 
-  // ---------------- Desktop arrows ----------------
+  // ---------------- Arrow Buttons ----------------
   prevBtn?.addEventListener("click", () => goToSlide(index - 1));
   nextBtn?.addEventListener("click", () => goToSlide(index + 1));
 
-  // ---------------- Dots ----------------
-  const createDots = () => {
-    if (!dotsContainer) return;
-    dotsContainer.innerHTML = "";
+  // ---------- Pointer (Mouse + Touch) ----------
+  let startX = 0;
+  let startY = 0;
+  let currentX = 0;
+  let isDragging = false;
+  let isHorizontalSwipe = null;
 
-    slides.forEach((_, i) => {
-      const dot = document.createElement("button");
-      dot.className =
-        "w-2.5 h-2.5 rounded-full bg-[#79A3C5] data-[active=true]:bg-[#FC8F3A]";
-      dot.dataset.active = "false";
-      dot.addEventListener("click", () => goToSlide(i));
-      dotsContainer.appendChild(dot);
-    });
-  };
+  track.addEventListener("pointerdown", (e) => {
+    startX = e.clientX;
+    startY = e.clientY;
+    currentX = startX;
 
-  const updateDots = () => {
-    if (!dotsContainer) return;
-    [...dotsContainer.children].forEach((dot, i) => {
-      dot.dataset.active = i === index;
-    });
-  };
-
-  // ---------------- Touch swipe (Mobile) ----------------
-  track.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
     isDragging = true;
+    isHorizontalSwipe = null;
+
     track.style.transition = "none";
+    track.setPointerCapture(e.pointerId);
   });
 
-  track.addEventListener("touchmove", (e) => {
+  track.addEventListener("pointermove", (e) => {
     if (!isDragging) return;
-    currentX = e.touches[0].clientX;
-    const diff = currentX - startX;
-    track.style.transform = `translateX(${diff - index * slideWidth()}px)`;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+
+    if (isHorizontalSwipe === null) {
+      isHorizontalSwipe = Math.abs(dx) > Math.abs(dy);
+    }
+
+    // Vertical scroll → allow page scroll
+    if (!isHorizontalSwipe) return;
+
+    e.preventDefault();
+    currentX = e.clientX;
+
+    track.style.transform = `translateX(${dx - index * slideWidth()}px)`;
   });
 
-  track.addEventListener("touchend", () => {
+  track.addEventListener("pointerup", endSwipe);
+  track.addEventListener("pointercancel", endSwipe);
+
+  function endSwipe() {
     if (!isDragging) return;
     isDragging = false;
 
@@ -121,17 +208,35 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       goToSlide(index);
     }
-  });
+  }
+
+  // ---------- TRACKPAD (Desktop Two-Finger Swipe) ----------
+  let wheelTimeout = null;
+
+  track.addEventListener(
+    "wheel",
+    (e) => {
+      // vertical scroll should work
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) return;
+
+      e.preventDefault();
+
+      clearTimeout(wheelTimeout);
+      wheelTimeout = setTimeout(() => {
+        if (e.deltaX > 30) {
+          goToSlide(index + 1);
+        } else if (e.deltaX < -30) {
+          goToSlide(index - 1);
+        }
+      }, 40);
+    },
+    { passive: false }
+  );
 
   // ---------------- Init ----------------
-  window.addEventListener("load", () => {
-    createDots();
-    goToSlide(0);
-  });
-
   window.addEventListener("resize", () => goToSlide(index));
+  goToSlide(0);
 });
-
 
 
 //-------- testimonial swiper------//

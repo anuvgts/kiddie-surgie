@@ -245,7 +245,7 @@
     <section id="serviceSection" class="relative w-full py-8 md:py-16 flex items-center justify-center
          bg-[#476F94] bg-repeat bg-center bg-auto overflow-x-hidden">
 
-      <div class="text-white p-1 sm:p-2 px-4 md:px-44  max-w-7xl mx-auto w-full">
+      <div class="text-white p-1 sm:p-2 px-4 md:px-40  max-w-7xl mx-auto w-full">
 
         <!-- two section -->
         <div class="flex flex-col gap-10 items-start">
@@ -257,7 +257,7 @@
             <div class="flex justify-center sm:justify-start mt-0.5 mb-6">
               <div class="bg-[#FC8F3A] text-white px-5 py-2 rounded-3xl flex items-center gap-2 w-auto">
                 <img src="assets/page2/scope of services.png" class="w-8 sm:w-12 h-auto" />
-                <h2 style="font-family: 'Rozha One', serif;" class=" text-[26px] md:text-[26px] ">
+                <h2 style="font-family: 'CanvaSans', sans-serif;" class=" text-[26px] md:text-[26px] ">
                   Scope of services
                 </h2>
               </div>
@@ -277,65 +277,80 @@
             </h4>
           </div>
           <!-- bottom side-->
-          <!-- <div id="carousel" class="relative w-full overflow-hidden"> -->
+         
             <div id="carousel" class="relative w-full overflow-hidden">
 
 
-  <!-- LEFT ARROW (DESKTOP ONLY) -->
+ 
   <!-- LEFT ARROW -->
-<button
-  id="prevSlide"
-  class="hidden md:flex absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-30
-         w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#FC8F3A]
+
+
+  <img
+              
+    id="prevSlide"
+    src="/assets/page2/left arrow.png"
+    alt="Previous"
+    class="hidden md:flex absolute left-3 md:left-[2px] top-1/2 -translate-y-1/2 z-30
+         w-10 h-10 md:w-12 md:h-12 
          items-center justify-center
-         shadow-[0_10px_25px_rgba(0,0,0,0.15)]
          transition-all duration-300
-         hover:scale-110 active:scale-95">
-
-  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="3"
-       viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-  </svg>
-</button>
-
-
-  <!-- RIGHT ARROW (DESKTOP ONLY) -->
-  <!-- RIGHT ARROW -->
-<button
-  id="nextSlide"
-  class="hidden md:flex absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-30
-         w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#FC8F3A]
+         hover:scale-110 active:scale-95"
+  />
+  
+  <!-- right arrow -->
+ 
+  <img
+    id="nextSlide"
+    class="hidden md:flex absolute right-3 md:right-[2px] top-1/2 -translate-y-1/2 z-30
+         w-10 h-10 md:w-12 md:h-12 
          items-center justify-center
-         shadow-[0_10px_25px_rgba(0,0,0,0.15)]
          transition-all duration-300
-         hover:scale-110 active:scale-95">
+         hover:scale-110 active:scale-95"
+    src="/assets/page2/right arrow.png"
+    alt="Next"
+  />
 
-  <svg class="w-5 h-5 text- white" fill="none" stroke="currentColor" stroke-width="3"
-       viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-  </svg>
-</button>
+
 
 
   
           
   <div
   id="carouselTrack"
-  class="flex w-full transition-transform duration-300 ease-out touch-pan-x">
+  class="flex w-full transition-transform duration-300 ease-out
+           touch-pan-y  select-none">
+<!-- card 1 -->
+<!-- <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-6">
+  <div
+    class="relative w-full max-w-7xl
+           min-h-[350px]
+           rounded-2xl
+           border-3 border-[#FFB37A]
+           shadow-md
+           overflow-hidden"
+    style="
+      background-image: url('assets/page2/card\ bg\ img.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    "> -->
+<div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-6">
 
+                <div class="w-full max-w-7xl h-auto
+                bg-white text-[#476F94]
+                p-4 md:pl-10
+                rounded-2xl
+                border-3 border-[#FFB37A]
+                shadow-md"
+                style="
+      background-image: url('assets/page2/card\ bg\ img.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    ">
+    <!-- Content ABOVE bg -->
+    <div class="relative z-10 p-4 md:pl-10 text-[#476F94]">
 
-              <!-- CARD 1 -->
-
-              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-10"> -->
-                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-10">
-
-                <div class="w-full max-w-7xl
-                  bg-white text-[#476F94]
-                  p-4 md:pl-10
-                  rounded-2xl
-                  border-3 border-[#FFB37A]
-                  shadow-md
-                  ">
 
                   <!-- Heading -->
                   <div class="flex items-center gap-4 mb-4 mt-4">
@@ -374,21 +389,28 @@
                   </ul>
                 </div>
               </div>
-
+</div>
 
 
               <!-- CARD 2 -->
 
               <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-10"> -->
-                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-10">
+                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-6">
 
-                <div class="w-full max-w-7xl h-auto
+               <div class="w-full max-w-7xl h-auto
                 bg-white text-[#476F94]
                 p-4 md:pl-10
                 rounded-2xl
                 border-3 border-[#FFB37A]
-                shadow-md">
-
+                shadow-md"
+                style="
+      background-image: url('assets/page2/card\ bg\ img.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    ">
+    <!-- Content ABOVE bg -->
+    <div class="relative z-10 p-4 md:pl-10 text-[#476F94]">
 
 
 
@@ -429,17 +451,26 @@
                   </ul>
 
                 </div>
+                </div>
               </div>
               <!-- Card 3 -->
-              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-10"> -->
-                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-10">
+              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-6"> -->
+                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-6">
 
-                <div class="w-full max-w-7xl h-auto
+               <div class="w-full max-w-7xl h-auto
                 bg-white text-[#476F94]
                 p-4 md:pl-10
                 rounded-2xl
                 border-3 border-[#FFB37A]
-                shadow-md">
+                shadow-md"
+                style="
+      background-image: url('assets/page2/card\ bg\ img.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    ">
+    <!-- Content ABOVE bg -->
+    <div class="relative z-10 p-4 md:pl-10 text-[#476F94]">
 
                   <!-- Heading -->
                   <div class="flex items-center gap-4 mb-4 mt-4">
@@ -493,16 +524,25 @@
 
                 </div>
               </div>
+              </div>
               <!-- Card 4 -->
-              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-10"> -->
-                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-10">
+              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-6"> -->
+                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-6">
 
                 <div class="w-full max-w-7xl h-auto
                 bg-white text-[#476F94]
                 p-4 md:pl-10
                 rounded-2xl
                 border-3 border-[#FFB37A]
-                shadow-md">
+                shadow-md"
+                style="
+      background-image: url('assets/page2/card\ bg\ img.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    ">
+    <!-- Content ABOVE bg -->
+    <div class="relative z-10 p-4 md:pl-10 text-[#476F94]">
 
                   <!-- heading -->
                   <div class="flex items-center gap-4 mb-3">
@@ -574,19 +614,27 @@
                     </li>
                   </ul>
                 </div>
-
+</div>
               </div>
 
               <!-- Card 5 -->
-              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-10"> -->
-                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-10">
+              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-6"> -->
+                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-6">
 
                 <div class="w-full max-w-7xl h-auto
-                  bg-white text-[#476F94]
-                  p-4 md:pl-10
-                  rounded-2xl
-                  border-3 border-[#FFB37A]
-                  shadow-md">
+                bg-white text-[#476F94]
+                p-4 md:pl-10
+                rounded-2xl
+                border-3 border-[#FFB37A]
+                shadow-md"
+                style="
+      background-image: url('assets/page2/card\ bg\ img.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    ">
+    <!-- Content ABOVE bg -->
+    <div class="relative z-10 p-4 md:pl-10 text-[#476F94]">
 
                   <!-- Heading -->
                   <div class="flex items-center gap-4 mb-4 mt-4">
@@ -645,18 +693,26 @@
 
                   </div>
                 </div>
-
+</div>
               </div>
               <!-- Card 6 -->
-              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-10"> -->
-                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-10">
+              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-6"> -->
+                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-6">
 
                 <div class="w-full max-w-7xl h-auto
-                  bg-white text-[#476F94]
-                  p-4 md:pl-10
-                  rounded-2xl
-                  border-3 border-[#FFB37A]
-                  shadow-md">
+                bg-white text-[#476F94]
+                p-4 md:pl-10
+                rounded-2xl
+                border-3 border-[#FFB37A]
+                shadow-md"
+                style="
+      background-image: url('assets/page2/card\ bg\ img.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    ">
+    <!-- Content ABOVE bg -->
+    <div class="relative z-10 p-4 md:pl-10 text-[#476F94]">
 
                   <!-- heading -->
                   <div class="flex items-center gap-4 mb-4 mt-4">
@@ -697,17 +753,26 @@
                     </li>
                   </ul>
                 </div>
+                </div>
               </div>
               <!-- Card 7 -->
-              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-10"> -->
-                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-10">
+              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-6"> -->
+                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-6">
 
                 <div class="w-full max-w-7xl h-auto
-                  bg-white text-[#476F94]
-                  p-4 md:pl-10
-                  rounded-2xl
-                  border-3 border-[#FFB37A]
-                  shadow-md">
+                bg-white text-[#476F94]
+                p-4 md:pl-10
+                rounded-2xl
+                border-3 border-[#FFB37A]
+                shadow-md"
+                style="
+      background-image: url('assets/page2/card\ bg\ img.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    ">
+    <!-- Content ABOVE bg -->
+    <div class="relative z-10 p-4 md:pl-10 text-[#476F94]">
 
                   <!-- Heading -->
                   <div class="flex items-center gap-4 mb-4 mt-4">
@@ -736,16 +801,25 @@
                   </ul>
                 </div>
               </div>
+              </div>
               <!-- card8 -->
-              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-10"> -->
-                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-10">
+              <!-- <div class="w-full h-auto flex-shrink-0 flex justify-center px-2 md:px-6"> -->
+                <div class="w-full min-w-full flex-shrink-0 flex justify-center px-2 md:px-6">
 
                 <div class="w-full max-w-7xl h-auto
-                  bg-white text-[#476F94]
-                  p-4 md:pl-10
-                  rounded-2xl
-                  border-3 border-[#FFB37A]
-                  shadow-md">
+                bg-white text-[#476F94]
+                p-4 md:pl-10
+                rounded-2xl
+                border-3 border-[#FFB37A]
+                shadow-md"
+                style="
+      background-image: url('assets/page2/card\ bg\ img.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    ">
+    <!-- Content ABOVE bg -->
+    <div class="relative z-10 p-4 md:pl-10 text-[#476F94]">
 
                   <!-- Heading -->
                   <div class="flex items-center gap-4 mb-4 mt-4">
@@ -782,6 +856,7 @@
                   </ul>
                 </div>
               </div>
+            </div>
             </div>
           </div>
           
