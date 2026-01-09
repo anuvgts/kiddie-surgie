@@ -349,31 +349,72 @@ function closeQuestionSuccessPopup() {
 
 // //-------------book appointment------------------//
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   const form = document.getElementById("contactForm");
+//   const popup = document.getElementById("booksuccessPopup");
+
+//   if (!form || !popup) return;
+
+//   form.addEventListener("submit", (e) => {
+//     e.preventDefault();
+
+//     const formData = new FormData(form);
+
+//     // 🔥 fire-and-forget (no CORS crash)
+//     fetch("https://n8n.techdemo.in/webhook/book-appointment", {
+//       method: "POST",
+//       body: formData,
+//       mode: "no-cors",
+//     });
+
+//     // ✅ UI actions MUST be outside fetch await
+//     popup.classList.remove("hidden");
+//     form.reset();
+//   });
+// });
+
+// // Close popup
+// function closePopup() {
+//   document.getElementById("booksuccessPopup")?.classList.add("hidden");
+// }
+//------------- book appointment ------------------//
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
   const popup = document.getElementById("booksuccessPopup");
+  const closeBtn = document.getElementById("closeSuccessPopup");
 
-  if (!form || !popup) return;
+  if (!form || !popup || !closeBtn) return;
 
+  // Submit form
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const formData = new FormData(form);
 
-    // 🔥 fire-and-forget (no CORS crash)
+    // Fire-and-forget (no CORS error)
     fetch("https://n8n.techdemo.in/webhook/book-appointment", {
       method: "POST",
       body: formData,
       mode: "no-cors",
     });
 
-    // ✅ UI actions MUST be outside fetch await
+    // Show success popup
     popup.classList.remove("hidden");
+
+    // Reset form
     form.reset();
   });
-});
 
-// Close popup
-function closePopup() {
-  document.getElementById("booksuccessPopup")?.classList.add("hidden");
-}
+  // Close popup (OK button)
+  closeBtn.addEventListener("click", () => {
+    popup.classList.add("hidden");
+  });
+
+  // Optional: close popup on background click
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.classList.add("hidden");
+    }
+  });
+});
