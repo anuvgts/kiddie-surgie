@@ -29,6 +29,29 @@ Promise.all([
   mobileMenu.addEventListener("click", (e) => {
     if (e.target.closest("a")) toggleMenu(false);
   });
+ // ----- OUR SERVICES dropdown (anchor click) -----
+const servicesLink = document.getElementById("servicesLink");
+const servicesDropdown = document.getElementById("servicesDropdown");
+
+if (servicesLink && servicesDropdown) {
+  const closeDropdown = () => {
+    servicesDropdown.classList.add("hidden");
+  };
+
+  servicesLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    servicesDropdown.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", closeDropdown);
+
+  servicesDropdown.addEventListener("click", (e) => {
+    e.stopPropagation(); // 🔥 prevent closing when clicking inside
+  });
+}
+
+
 });
 
 // footer
@@ -46,134 +69,6 @@ fetch("footer.html")
 // // ---- Scope of services carousel ---- //
 
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const track = document.getElementById("carouselTrack");
-//   if (!track) return;
-
-//   const slides = [...track.children];
-//   const prevBtn = document.getElementById("prevSlide");
-//   const nextBtn = document.getElementById("nextSlide");
-//   const dotsContainer = document.getElementById("carouselDots");
-
-//   let index = 0;
-
-//   const slideWidth = () => slides[0].offsetWidth;
-
-//   /* =======================
-//         CORE SLIDE LOGIC
-//   ======================== */
-//   const goToSlide = (i) => {
-//     index = Math.max(0, Math.min(i, slides.length - 1));
-//     track.style.transition =
-//       "transform 0.18s cubic-bezier(0.25, 0.8, 0.25, 1)";
-//     track.style.transform = `translateX(${-index * slideWidth()}px)`;
-//     updateDots();
-//   };
-
-//   prevBtn?.addEventListener("click", () => goToSlide(index - 1));
-//   nextBtn?.addEventListener("click", () => goToSlide(index + 1));
-
-//   /* =======================
-//       TOUCH / POINTER SWIPE
-//   ======================== */
-//   let startX = 0;
-//   let currentX = 0;
-//   let isDragging = false;
-
-//   track.addEventListener("pointerdown", (e) => {
-//     startX = e.clientX;
-//     currentX = startX;
-//     isDragging = true;
-
-//     track.style.transition = "none";
-//     track.setPointerCapture(e.pointerId);
-//   });
-
-//   track.addEventListener("pointermove", (e) => {
-//     if (!isDragging) return;
-
-//     currentX = e.clientX;
-//     const dx = currentX - startX;
-
-//     track.style.transform = `translateX(${dx - index * slideWidth()}px)`;
-//   });
-
-//   track.addEventListener("pointerup", (e) => {
-//     if (!isDragging) return;
-//     isDragging = false;
-
-//     track.releasePointerCapture(e.pointerId);
-
-//     const diff = currentX - startX;
-//     const threshold = slideWidth() * 0.15; // 🔥 fast response
-
-//     if (diff > threshold) {
-//       goToSlide(index - 1);
-//     } else if (diff < -threshold) {
-//       goToSlide(index + 1);
-//     } else {
-//       goToSlide(index);
-//     }
-//   });
-
-//   track.addEventListener("pointercancel", () => {
-//     isDragging = false;
-//     goToSlide(index);
-//   });
-
-//   /* =======================
-//         TRACKPAD SWIPE
-//   ======================== */
-//   let wheelLock = false;
-
-//   track.addEventListener(
-//     "wheel",
-//     (e) => {
-//       if (wheelLock) return;
-//       if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
-
-//       e.preventDefault();
-//       wheelLock = true;
-
-//       if (e.deltaX > 30) goToSlide(index + 1);
-//       else if (e.deltaX < -30) goToSlide(index - 1);
-
-//       setTimeout(() => (wheelLock = false), 200); // 🔥 quicker unlock
-//     },
-//     { passive: false }
-//   );
-
-//   /* =======================
-//             DOTS
-//   ======================== */
-//   const createDots = () => {
-//     if (!dotsContainer) return;
-//     dotsContainer.innerHTML = "";
-
-//     slides.forEach((_, i) => {
-//       const dot = document.createElement("button");
-//       dot.className =
-//         "w-2.5 h-2.5 rounded-full bg-[#79A3C5] data-[active=true]:bg-[#FC8F3A]";
-//       dot.dataset.active = i === index;
-//       dot.addEventListener("click", () => goToSlide(i));
-//       dotsContainer.appendChild(dot);
-//     });
-//   };
-
-//   const updateDots = () => {
-//     if (!dotsContainer) return;
-//     [...dotsContainer.children].forEach((dot, i) => {
-//       dot.dataset.active = i === index;
-//     });
-//   };
-
-//   /* =======================
-//             INIT
-//   ======================== */
-//   window.addEventListener("resize", () => goToSlide(index));
-//   createDots();
-//   goToSlide(0);
-// });
 
 
 document.addEventListener("DOMContentLoaded", () => {
