@@ -50,6 +50,24 @@ if (servicesLink && servicesDropdown) {
     e.stopPropagation(); // 🔥 prevent closing when clicking inside
   });
 }
+// ----- MOBILE OUR SERVICES dropdown ----- //
+const mobileServicesLink = document.getElementById("mobileServicesLink");
+const mobileServicesDropdown = document.getElementById("mobileServicesDropdown");
+
+if (mobileServicesLink && mobileServicesDropdown) {
+
+  mobileServicesLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    mobileServicesDropdown.classList.toggle("hidden");
+  });
+
+  // prevent closing when clicking inside dropdown
+  mobileServicesDropdown.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+}
 
 
 });
