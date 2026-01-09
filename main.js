@@ -46,7 +46,6 @@ fetch("footer.html")
 // // ---- Scope of services carousel ---- //
 
 
-
 // document.addEventListener("DOMContentLoaded", () => {
 //   const track = document.getElementById("carouselTrack");
 //   if (!track) return;
@@ -60,9 +59,13 @@ fetch("footer.html")
 
 //   const slideWidth = () => slides[0].offsetWidth;
 
+//   /* =======================
+//         CORE SLIDE LOGIC
+//   ======================== */
 //   const goToSlide = (i) => {
 //     index = Math.max(0, Math.min(i, slides.length - 1));
-//     track.style.transition = "transform 0.25s ease-out"; // slightly faster
+//     track.style.transition =
+//       "transform 0.18s cubic-bezier(0.25, 0.8, 0.25, 1)";
 //     track.style.transform = `translateX(${-index * slideWidth()}px)`;
 //     updateDots();
 //   };
@@ -70,82 +73,79 @@ fetch("footer.html")
 //   prevBtn?.addEventListener("click", () => goToSlide(index - 1));
 //   nextBtn?.addEventListener("click", () => goToSlide(index + 1));
 
-//   // ---------- Pointer Swipe ----------
+//   /* =======================
+//       TOUCH / POINTER SWIPE
+//   ======================== */
 //   let startX = 0;
-//   let startY = 0;
 //   let currentX = 0;
 //   let isDragging = false;
-//   let isHorizontalSwipe = null;
-//   let pointerId = null;
 
 //   track.addEventListener("pointerdown", (e) => {
 //     startX = e.clientX;
-//     startY = e.clientY;
 //     currentX = startX;
-
 //     isDragging = true;
-//     isHorizontalSwipe = null;
-//     pointerId = e.pointerId;
 
 //     track.style.transition = "none";
-//     track.setPointerCapture(pointerId);
+//     track.setPointerCapture(e.pointerId);
 //   });
 
 //   track.addEventListener("pointermove", (e) => {
 //     if (!isDragging) return;
 
-//     const dx = e.clientX - startX;
-//     const dy = e.clientY - startY;
-
-//     if (isHorizontalSwipe === null) {
-//       isHorizontalSwipe = Math.abs(dx) > Math.abs(dy);
-//     }
-
-//     if (!isHorizontalSwipe) return;
-
-//     e.preventDefault(); // stop scroll only when horizontal
 //     currentX = e.clientX;
+//     const dx = currentX - startX;
 
 //     track.style.transform = `translateX(${dx - index * slideWidth()}px)`;
 //   });
 
-//   track.addEventListener("pointerup", endSwipe);
-//   track.addEventListener("pointercancel", endSwipe);
-
-//   function endSwipe() {
+//   track.addEventListener("pointerup", (e) => {
 //     if (!isDragging) return;
 //     isDragging = false;
 
-//     track.releasePointerCapture(pointerId);
+//     track.releasePointerCapture(e.pointerId);
 
 //     const diff = currentX - startX;
-//     const threshold = slideWidth() / 6; // ⬅️ faster response
+//     const threshold = slideWidth() * 0.15; // 🔥 fast response
 
-//     if (diff > threshold) goToSlide(index - 1);
-//     else if (diff < -threshold) goToSlide(index + 1);
-//     else goToSlide(index);
-//   }
+//     if (diff > threshold) {
+//       goToSlide(index - 1);
+//     } else if (diff < -threshold) {
+//       goToSlide(index + 1);
+//     } else {
+//       goToSlide(index);
+//     }
+//   });
 
-//   // ---------- Trackpad ----------
-//   let wheelTimeout = null;
+//   track.addEventListener("pointercancel", () => {
+//     isDragging = false;
+//     goToSlide(index);
+//   });
+
+//   /* =======================
+//         TRACKPAD SWIPE
+//   ======================== */
+//   let wheelLock = false;
 
 //   track.addEventListener(
 //     "wheel",
 //     (e) => {
-//       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) return;
+//       if (wheelLock) return;
+//       if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
 
 //       e.preventDefault();
-//       clearTimeout(wheelTimeout);
+//       wheelLock = true;
 
-//       wheelTimeout = setTimeout(() => {
-//         if (e.deltaX > 20) goToSlide(index + 1);
-//         else if (e.deltaX < -20) goToSlide(index - 1);
-//       }, 30);
+//       if (e.deltaX > 30) goToSlide(index + 1);
+//       else if (e.deltaX < -30) goToSlide(index - 1);
+
+//       setTimeout(() => (wheelLock = false), 200); // 🔥 quicker unlock
 //     },
 //     { passive: false }
 //   );
 
-//   // ---------- Dots ----------
+//   /* =======================
+//             DOTS
+//   ======================== */
 //   const createDots = () => {
 //     if (!dotsContainer) return;
 //     dotsContainer.innerHTML = "";
@@ -167,10 +167,15 @@ fetch("footer.html")
 //     });
 //   };
 
+//   /* =======================
+//             INIT
+//   ======================== */
 //   window.addEventListener("resize", () => goToSlide(index));
 //   createDots();
 //   goToSlide(0);
 // });
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.getElementById("carouselTrack");
   if (!track) return;
@@ -181,6 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dotsContainer = document.getElementById("carouselDots");
 
   let index = 0;
+  let swipeLocked = false;
 
   const slideWidth = () => slides[0].offsetWidth;
 
@@ -188,11 +194,20 @@ document.addEventListener("DOMContentLoaded", () => {
         CORE SLIDE LOGIC
   ======================== */
   const goToSlide = (i) => {
+    if (swipeLocked) return;
+    swipeLocked = true;
+
     index = Math.max(0, Math.min(i, slides.length - 1));
+
     track.style.transition =
       "transform 0.18s cubic-bezier(0.25, 0.8, 0.25, 1)";
     track.style.transform = `translateX(${-index * slideWidth()}px)`;
+
     updateDots();
+
+    setTimeout(() => {
+      swipeLocked = false;
+    }, 180); // must match transition duration
   };
 
   prevBtn?.addEventListener("click", () => goToSlide(index - 1));
@@ -206,6 +221,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let isDragging = false;
 
   track.addEventListener("pointerdown", (e) => {
+    if (swipeLocked) return;
+
     startX = e.clientX;
     currentX = startX;
     isDragging = true;
@@ -230,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
     track.releasePointerCapture(e.pointerId);
 
     const diff = currentX - startX;
-    const threshold = slideWidth() * 0.15; // 🔥 fast response
+    const threshold = slideWidth() * 0.15; // fast & responsive
 
     if (diff > threshold) {
       goToSlide(index - 1);
@@ -254,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
   track.addEventListener(
     "wheel",
     (e) => {
-      if (wheelLock) return;
+      if (wheelLock || swipeLocked) return;
       if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
 
       e.preventDefault();
@@ -263,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.deltaX > 30) goToSlide(index + 1);
       else if (e.deltaX < -30) goToSlide(index - 1);
 
-      setTimeout(() => (wheelLock = false), 200); // 🔥 quicker unlock
+      setTimeout(() => (wheelLock = false), 200);
     },
     { passive: false }
   );
