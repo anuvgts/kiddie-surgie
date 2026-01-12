@@ -1,50 +1,55 @@
 <!-- Mobile slide-in menu -->
-<div id="mobileMenu"
-  class="fixed top-0 right-[-260px] w-[260px] h-full bg-white text-white shadow-xl transition-all duration-300 z-50">
+<div
+  id="mobileMenu"
+  class="fixed top-0 right-[-260px] w-[260px] h-full bg-white shadow-xl
+         transition-all duration-300 z-50 overflow-y-auto"
+>
+
   <!-- Close Button -->
-  <div class="flex justify-end p-4 ">
-    <button id="closeBtn">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-        class="w-8 h-8 text-[#476F94]">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
+  <div class="flex justify-end p-4">
+    <button id="closeBtn">✕</button>
   </div>
 
-  <!-- Menu Items -->
-  <ul class="flex flex-col gap-2 text-sm text-[#476F94] font-bold px-2">
-    <li class="px-3 py-2 transition-colors cursor-pointer">
+  <!-- MENU -->
+  <ul class="flex flex-col text-sm text-[#476F94] font-bold px-2 pb-16">
+
+    <!-- HOME -->
+    <li class="px-4 py-3">
       <a href="index.html">HOME</a>
     </li>
-   
-            
-          <li class="relative ">
-  <!-- Anchor -->
-  <a
-    href="javascript:void(0)"
-    id="mobileServicesLink"
-    class="block  flex items-center gap-1 px-4 py-3 cursor-pointer select-none"
-  >
-    OUR SERVICES
-    <svg
-      class="w-4 h-4 mt-[1px] transition-transform duration-200"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2.5"
-      viewBox="0 0 24 24"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-    </svg>
-  </a>
 
-  <!-- Dropdown -->
-  <ul
-    id="mobileServicesDropdown"
-    class="absolute left-0 top-full  w-60 md:w-70
-           bg-white shadow-lg border-t border-gray-200
-           hidden z-50"
-  >
-    <li class="border-b">
+    <!-- OUR SERVICES (middle) -->
+    <li class="relative">
+      <button
+        id="mobileServicesLink"
+        class="w-full flex items-center justify-between px-4 py-3"
+      >
+        OUR SERVICES
+        <svg
+          id="servicesArrow"
+          class="w-4 h-4 transition-transform duration-200"
+          fill="none" stroke="currentColor" stroke-width="2.5"
+          viewBox="0 0 24 24"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <ul
+        id="mobileServicesDropdown"
+        class="hidden flex flex-col mx-3 mb-2 bg-white shadow-lg border-t border-gray-200"
+      >
+        <!-- <li><a href="#hernia" class="block px-4 py-2">Hernia</a></li>
+        <li><a href="#undescended-testis" class="block px-4 py-2">Undescended Testis</a></li>
+        <li><a href="#hypospadias" class="block px-4 py-2">Hypospadias</a></li>
+        <li><a href="#circumcision" class="block px-4 py-2">Circumcision</a></li>
+        <li><a href="#tongue-tie" class="block px-4 py-2">Tongue Tie</a></li>
+        <li><a href="#puv-vur" class="block px-4 py-2">PUV / VUR</a></li>
+        <li><a href="#neonatal-surgery" class="block px-4 py-2">Neonatal Surgery</a></li>
+        <li><a href="#colorectal" class="block px-4 py-2">Colorectal</a></li>
+        <li><a href="#thoracic" class="block px-4 py-2">Complex Thoracic</a></li> -->
+        <li class="border-b">
       <a href="#hernia" class="block transition-transform duration-200 ease-out hover:scale-105 px-5 py-3 hover:bg-gray-100">
         Hernia
       </a>
@@ -97,15 +102,18 @@
         Complex Thoracic
       </a>
     </li>
-  </ul>
-</li>
+      </ul>
+    </li>
 
-
-    <li class="px-3 py-2 transition-colors cursor-pointer">
+    <!-- MEET OUR EXPERTS -->
+    <li class="px-4 py-3">
       <a href="index.html#meet">MEET OUR EXPERTS</a>
     </li>
-    <li class="px-3 py-2 transition-colors cursor-pointer">
+
+    <!-- CONTACT -->
+    <li class="px-4 py-3">
       <a href="contact.html">CONTACT US</a>
     </li>
+
   </ul>
 </div>
